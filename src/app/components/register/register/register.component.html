@@ -1,0 +1,74 @@
+<h2 class="text-center">Player Register</h2>
+
+<form [formGroup]="registerForm">
+    <!-- // ID // -->
+    <div class="form-group">
+        <label for="id">User ID</label>
+        <input type="text" class="form-control" id="id" formControlName="id" placeholder="ID">
+        <span *ngIf="id.touched &&  id.errors?.required"> this is required </span>
+    </div>
+    <!-- // first_name //  -->
+    <div class="form-group">
+        <label for="first_name">First Name</label>
+        <input type="text" class="form-control" formControlName="fname" placeholder="first name">
+        <span *ngIf="fname.touched &&  fname.errors?.required"> this is required </span>
+    </div>
+    <!-- // last_name //  -->
+
+    <div class="form-group">
+        <label for="last_name">last name</label>
+        <input type="text" class="form-control" formControlName="lname" placeholder="last name">
+        <span *ngIf="lname.touched &&  lname.errors?.required"> this is required </span>
+    </div>
+    
+    <!-- // email //  -->
+    <div class="form-group">
+        <label for="email">email</label>
+        <input type="text" class="form-control" formControlName="email" placeholder="email">
+        <span *ngIf="email.touched &&  email.errors?.required"> this is required must be email </span>
+    </div>
+
+    <!-- // phone //  -->
+    <div class="form-group">
+        <label for="phone">phone</label>
+        <input type="text" class="form-control" formControlName="phone" placeholder="phone">
+        <span *ngIf="phone.touched && phone.errors?.required"> must be phone</span>
+    </div>
+
+    <!-- // address //  -->
+    <div class="form-group">
+        <label for="address"> address</label>
+        <div className="form-group">
+            <div className="input-group">
+                <span className="input-group-addon">
+                    <span className="glyphicon glyphicon-lock"></span>
+                </span>
+                <select className="form-control">
+                    <option>mansoura</option>
+                    <option>cairo</option>
+                    <option>smart vallige</option>
+                    <option>talkha</option>
+                </select>
+
+            </div>
+
+        </div>
+        <!-- <span *ngIf="address.touched &&  address.errors?.required"> this is required </span> -->
+    </div>
+
+    <!-- // password //  -->
+
+    <div class="form-group">
+        <label for="password">password </label>
+        <input type="text" class="form-control" formControlName="password" placeholder="password">
+        <span *ngIf="password.touched &&  password.errors?.required"> this is required </span>
+    </div>
+
+    <input type="submit" value="Register" class="btn btn-primary ">
+
+</form>
+<!-- Form -->
+
+<!-- <div class="container">
+    <router-outlet></router-outlet>
+  </div> -->
