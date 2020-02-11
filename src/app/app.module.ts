@@ -1,39 +1,49 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { Nav1Component } from './navbar/nav1/nav1.component';
-
-import {AngularStickyThingsModule} from '@w11k/angular-sticky-things';
-import { CardsComponent } from './components/cards/cards.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { Navbar1Component } from './navbar1/navbar1.component';
-import { MapsComponent } from './components/maps/maps.component';
-import { SliderComponent } from './components/slider/slider.component';
-import { MulticardsComponent } from './components/multicards/multicards.component';
-import { LogsignComponent } from './components/logsign/logsign.component';
-import { Table1Component } from './components/table1/table1.component';
-
+import { HeaderComponent } from './core/header/header.component';
+import { FooterComponent } from './core/footer/footer.component';
+import { HomeComponent } from './core/home/home.component';
+import { ErrorComponent } from './shared/error/error.component';
+// auth owner
+import { LoginComponent as ownerlogin } from './features/auth/owner/login/login.component';
+import { RegisterComponent as ownerRegister } from './features/auth/owner/register/register.component';
+// auth user
+import { RegisterComponent as userRegister } from './features/auth/user/register/register.component';
+import { LoginComponent  as userlogin } from './features/auth/user/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
-    Nav1Component,
-    CardsComponent,
+    HeaderComponent,
     FooterComponent,
-    Navbar1Component,
-    MapsComponent,
-    SliderComponent,
-    MulticardsComponent,
-    LogsignComponent,
-    Table1Component,
+    HomeComponent,
+    ErrorComponent,
+    // auth owner
+    ownerlogin,
+    ownerRegister,
+    // auth user
+    userRegister,
+    userlogin,
+    //--------//
+    
+
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    
-    AngularStickyThingsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
 
+
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
