@@ -3,28 +3,25 @@
         <h3 class="text-center">Player Login</h3>
         <form [formGroup]="loginform" (ngSubmit)="onSubmit()" #form="ngForm">
 
-            <!-- // User Name //  -->
+            <!-- // E-Mail //  -->
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" formControlName="email" placeholder="Email">
+                <input type="email" class="form-control" formControlName="email" placeholder="E-Mail" email>
                 <span *ngIf="email.touched && email.errors?.required"> this is required </span>
+                <span *ngIf="email.errors?.email">this field must be email </span>
             </div>
 
-            <!-- // password //  -->
 
+            <!-- // password //  -->
             <div class="form-group">
                 <label for="password">password </label>
-                <input type="password" class="form-control" formControlName="password" placeholder="password" digits>
+                <input type="password" class="form-control" formControlName="password" placeholder="password">
                 <span *ngIf="password.touched && password.errors?.required"> this is required </span>
+                <span *ngIf="password.errors?.rangeLength"> rangeLength must be 6 : 14 </span>
             </div>
 
             <input type="submit" value="login" class="btn btn-primary ">
 
         </form>
-        <!-- Form -->
-
-        <!-- <div class="container">
-    <router-outlet></router-outlet>
-  </div> -->
     </div>
 </div>
