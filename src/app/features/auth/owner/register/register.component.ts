@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { CustomValidators } from 'ng2-validation';
+
 
 
 
@@ -38,12 +40,12 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
 
     this.ownarform = new FormGroup({
-      'id': new FormControl('', Validators.required), //id vaild 
-      'fname': new FormControl('', [Validators.required, Validators.min(4)]),
-      'lname': new FormControl('', [Validators.required, Validators.min(4)]),
-      'phone': new FormControl('', Validators.required), //phone valid 
+      'id': new FormControl('', [Validators.required, CustomValidators.number]),
+      'fname': new FormControl('', [Validators.required, Validators.min(6)]),
+      'lname': new FormControl('', [Validators.required, Validators.min(6)]),
+      'phone': new FormControl('', [Validators.required, CustomValidators.phone('zh-CN')]),
       'address': new FormControl('', Validators.required),
-      'email': new FormControl('', [Validators.required, Validators.min(4)]), // email valid 
+      'email': new FormControl('', [Validators.required, CustomValidators.email]),
       'password': new FormControl('', Validators.required)
 
     })

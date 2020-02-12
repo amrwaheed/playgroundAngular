@@ -3,21 +3,25 @@
         <h2 class="text-center">User Register</h2>
 
         <form (ngSubmit)="onSubmit()" #form="ngForm" [formGroup]="registerForm">
-           
+
             <!-- // first_name //  -->
             <div class="form-group">
                 <label for="first_name">First Name</label>
-                <input type="text" class="form-control" formControlName="firstName" placeholder="first name">
+                <input type="text" class="form-control" formControlName="firstName" placeholder="first name" min>
                 <span *ngIf="firstName.touched &&  firstName.errors?.required"> this is required </span>
-            </div>
-            <!-- // last_name //  -->
+                <span *ngIf="firstName.errors?.min"> minLength must be 6 </span>
 
+            </div>
+
+            <!-- // last_name //  -->
             <div class="form-group">
                 <label for="last_name">last name</label>
-                <input type="text" class="form-control" formControlName="lastName" placeholder="last name">
+                <input type="text" class="form-control" formControlName="lastName" placeholder="last name" min>
                 <span *ngIf="lastName.touched &&  lastName.errors?.required"> this is required </span>
+                <span *ngIf="lastName.errors?.min"> minLength must be 6 </span>
             </div>
-            
+
+            <!-- // user name //  -->
             <div class="form-group">
                 <label for="username">user name</label>
                 <input type="text" class="form-control" formControlName="username" placeholder="user name">
@@ -27,71 +31,72 @@
             <!-- // email //  -->
             <div class="form-group">
                 <label for="email">email</label>
-                <input type="email" class="form-control" formControlName="email" placeholder="email">
-                <span *ngIf="email.touched &&  email.errors?.required"> this is required must be email </span>
+                <input type="email" class="form-control" formControlName="email" placeholder="email" email>
+                <span *ngIf="email.touched &&  email.errors?.required"> this is required</span>
+                <span *ngIf="email.errors?.email">this field must be email </span>
+
             </div>
 
             <!-- // phone //  -->
-            <div class="form-group" >
+            <div class="form-group">
                 <label for="phone">phone</label>
-                <input type="text" class="form-control" formControlName="phone" placeholder="phone">
+                <input type="text" class="form-control" formControlName="phone" placeholder="phone" phone>
                 <span *ngIf="phone.touched && phone.errors?.required"> must be phone</span>
+                <span *ngIf="phone.errors?.phone">this field must be phone </span>
+
             </div>
 
             <!-- // address //  -->
-            <div formGroupName="address" >
-            <div class="form-group" >
-                <label for="address"> governorate</label>
-                <div className="form-group">
-                    <div className="input-group">
-                        <span className="input-group-addon">
-                            <span className="glyphicon glyphicon-lock"></span>
-                        </span>
-                        <select className="form-control" formControlName="governorate_id" (change)="get_Gov_Cities($event)">
-                            <option *ngFor="let governorate of governorates" [value]="governorate._id" >{{governorate.name}}</option>
-                        </select>
+            <div formGroupName="address">
+                <div class="form-group">
+                    <label for="address"> governorate</label>
+                    <div className="form-group">
+                        <div className="input-group">
+                            <span className="input-group-addon">
+                                <span className="glyphicon glyphicon-lock"></span>
+                            </span>
+                            <select className="form-control" formControlName="governorate_id"
+                                (change)="get_Gov_Cities($event)">
+                                <option *ngFor="let governorate of governorates" [value]="governorate._id">
+                                    {{governorate.name}}</option>
+                            </select>
+
+                        </div>
 
                     </div>
 
                 </div>
-             
-            </div>
-            <div class="form-group" >
-                <label for="address"> city</label>
-                <div className="form-group">
-                    <div className="input-group">
-                        <span className="input-group-addon">
-                            <span className="glyphicon glyphicon-lock"></span>
-                        </span>
-                        <select className="form-control" formControlName="city_id">
-                           
-                            <option *ngFor="let city of cities" [value]="city._id">{{city.name}}</option>
-                         
-                        </select>
+                <div class="form-group">
+                    <label for="address"> city</label>
+                    <div className="form-group">
+                        <div className="input-group">
+                            <span className="input-group-addon">
+                                <span className="glyphicon glyphicon-lock"></span>
+                            </span>
+                            <select className="form-control" formControlName="city_id">
+
+                                <option *ngFor="let city of cities" [value]="city._id">{{city.name}}</option>
+
+                            </select>
+
+                        </div>
 
                     </div>
 
                 </div>
-                
             </div>
-        </div>
-           
 
-            <!-- // password //  -->
 
+            <!-- // password //  -->v
             <div class="form-group">
                 <label for="password">password </label>
                 <input type="password" class="form-control" formControlName="password" placeholder="password">
                 <span *ngIf="password.touched &&  password.errors?.required"> this is required </span>
             </div>
 
-            <input type="submit" value="Register" class="btn btn-primary "   [disabled]="isValid!==true">
+            <input type="submit" value="Register" class="btn btn-primary " [disabled]="isValid!==true">
 
         </form>
-        <!-- Form -->
         {{registerForm.value | json }}
-        <!-- <div class="container">
-    <router-outlet></router-outlet>
-  </div> -->
     </div>
 </div>
