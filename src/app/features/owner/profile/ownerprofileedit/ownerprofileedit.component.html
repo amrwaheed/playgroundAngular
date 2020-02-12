@@ -1,0 +1,153 @@
+
+<div class="row">
+
+
+
+  <div class="col-md-9 pb-3" style="background-color: steelblue;margin: auto; ">
+    <h3 class="pt-3" style="text-align: center;">EDIT FORM</h3>
+<form>
+    <div class="form-group">
+
+
+        <div class="col-md-12 mb-3">
+            <label for="validationtype">type</label>
+            <input type="text" formControlName="type" class="form-control" id="validationServer01"  placeholder="type"  required>
+            <div class="valid-feedback">
+            Looks good!
+            </div>
+        </div>
+
+        <div class="custom-file">
+            <input type="file" formControlName="image" class="custom-file-input" id="validatedCustomFile" required>
+            <label class="custom-file-label" for="validatedCustomFile">Choose image...</label>
+            <div class="invalid-feedback">Example invalid custom file feedback</div>
+          </div>
+
+
+        <div class="col-md-12 mb-3">
+          <label for="validationServer01">First name</label>
+          <input type="text" formControlName="firstName" class="form-control" id="validationServer01" placeholder="First name"  required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <label for="validationServer02">Last name</label>
+          <input type="text" formControlName="lastName" class="form-control" id="validationServer02" placeholder="Last name"  required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <label for="validationServerUsername">Username</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroupPrepend3">@</span>
+            </div>
+            <input type="text" formControlName="username" class="form-control" id="validationServerUsername" placeholder="Username" aria-describedby="inputGroupPrepend3" required>
+            <div class="invalid-feedback">
+              Please choose a username.
+            </div>
+          </div>
+        </div>
+
+
+        <!-- e mail -->
+        <div class="col-md-12 mb-3">
+            <label for="inputIconEx2">E-mail address</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend3"><i class="fas fa-user prefix"></i></span>
+                </div>
+                <input type="text" formControlName="email" id="inputIconEx2" class="form-control">
+            </div>
+        </div>
+
+
+
+        <div class="col-md-12 mb-3">
+            <label>Phone</label>
+            <input type="phone" formControlName="phone" class="form-control"  placeholder="phone">
+            <div class="valid-feedback">
+            Looks good!
+            </div>
+        </div>
+
+
+        <div class="col-md-12 mb-3">
+            <label for="inputPassword6">type</label>
+            <input type="password" formControlName="password" class="form-control" id="inputPassword6"  placeholder="password"  required>
+            <div class="valid-feedback">
+            Looks good!
+            </div>
+        </div>
+
+        <!-- address -->
+        <!-- <div class="form-row"> -->
+            <div class="col-md-9 mb-3">
+                <label for="address"> address</label>
+                <br>
+                <select formControlName="governorate_id" className="form-control" class="btn-block">
+                    <option>mansoura</option>
+                    <option>cairo</option>
+
+                </select>
+            </div>
+            
+              <!-- <label for="validationServer03">City</label>
+              <input type="text"  class="form-control" id="validationServer03" placeholder="City" required>
+              <div class="invalid-feedback">
+                Please provide a valid city.
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="validationServer04">State</label>
+              <input type="text" formControlName="city_id" class="form-control" id="validationServer04" placeholder="State" required>
+              <div class="invalid-feedback">
+                Please provide a valid state.
+              </div>
+            </div> -->
+        <!-- </div> -->
+
+
+
+
+          <!-- date -->
+            <div class="col-md-12 mb-3">
+                <label>date</label>
+                <input type="datetime-local" formControlName="date" class="form-control"  placeholder="date"  required>
+                <div class="valid-feedback">
+                Looks good!
+                </div>
+            </div>
+
+
+            
+            <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck3" required>
+                  <label class="form-check-label" for="invalidCheck3">
+                    Agree to terms and conditions
+                  </label>
+                  <div class="invalid-feedback">
+                    You must agree before submitting.
+                  </div>
+                </div>
+              </div>
+
+      </div>
+
+
+
+    <button class="btn btn-dark btn-block" type="submit">Submit form</button>
+  </form>
+  </div>
+
+
+
+
+</div>
+
+<br>
