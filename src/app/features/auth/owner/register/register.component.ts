@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
+import { Router } from '@angular/router';
+import { CityService } from 'src/app/_services/city/city.service';
+import { GovernorateService } from 'src/app/_services/governorate/governorate.service';
+import { Governorate } from 'src/app/_models/governorate/governorate';
+import { City } from 'src/app/_models/city/city';
+import { OwnerService } from 'src/app/_services/owner/owner.service';
 
 
 @Component({
@@ -9,46 +14,101 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  ownarform: FormGroup;
+  registerForm: FormGroup;
+  governorates:Governorate [] =[];
+  cities:City [] =[];
+  isValid:boolean = false;
 
 
-  get id() {
-    return this.ownarform.get('id');
+
+  get firstName() {
+    return this.registerForm.get('firstName');
   }
 
-  get fname() {
-    return this.ownarform.get('fname');
+  get lastName() {
+    return this.registerForm.get('lastName');
+  }
+ 
+  get username() {
+    return this.registerForm.get('username');
   }
 
-  get lname() {
-    return this.ownarform.get('lname');
-  }
   get email() {
-    return this.ownarform.get('email');
+    return this.registerForm.get('email');
   }
   get password() {
-    return this.ownarform.get('password');
+    return this.registerForm.get('password');
   }
   get phone() {
-    return this.ownarform.get('phone');
+    return this.registerForm.get('phone');
   }
 
-  constructor() { }
 
+  constructor(
+    private ownerServeice:OwnerService,
+    private router:Router,
+    private cityService:CityService,
+    private governorateService:GovernorateService
+  ) { }
+
+  get_Gov_Cities(event){
+    
+    this.cityService.getCity(event.target.value).subscribe(cityData =>{
+      this.cities=cityData
+     
+    })
+  }
   ngOnInit() {
-
-    this.ownarform = new FormGroup({
-      'id': new FormControl('', Validators.required), //id vaild 
-      'fname': new FormControl('', [Validators.required, Validators.min(4)]),
-      'lname': new FormControl('', [Validators.required, Validators.min(4)]),
+      // assign governorates data GET
+    this.governorateService.getGovernorate().subscribe(governorateData =>{
+      this.governorates=governorateData
+      
+    })
+    // assign cities data GET
+   
+    
+    
+    this.registerForm = new FormGroup({
+    
+      'firstName': new FormControl('', Validators.required),
+      'lastName': new FormControl('', Validators.required),
+      'username': new FormControl('', Validators.required),
       'phone': new FormControl('', Validators.required), //phone valid 
-      'address': new FormControl('', Validators.required),
-      'email': new FormControl('', [Validators.required, Validators.min(4)]), // email valid 
-      'password': new FormControl('', Validators.required)
-
+      "address": new FormGroup({
+          "governorate_id" : new FormControl(1,Validators.required),
+          "city_id" : new FormControl(1,Validators.required)
+        }),  //create formgroup for Address
+      'email': new FormControl('', Validators.required), // email valid 
+      'password': new FormControl('', Validators.required),
     })
 
+  }
 
+
+  onSubmit(){
+    console.log(this.registerForm)
+    console.log(this.registerForm.value)
+    this.registerForm.value.phone = +this.registerForm.value.phone; 
+    this.registerForm.value.address.governorate_id = +this.registerForm.value.address.governorate_id; 
+    this.registerForm.value.address.city_id = +this.registerForm.value.address.city_id; 
+    console.log(this.registerForm.value)
+    this.ownerServeice.registerOwner(this.registerForm.value).subscribe(data => {
+      console.log(data)
+      this.router.navigate(['/ownerProfile'])
+    },error=> {console.log(error.error )})
+    
+ 
+  }
+
+
+  ngDoCheck(): void {
+   
+    if (this.registerForm.valid == true) {
+      this.isValid = true
+    }else{
+      this.isValid = false
+
+    }
   }
 
 }
