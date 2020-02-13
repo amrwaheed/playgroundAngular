@@ -10,7 +10,15 @@ import { OwnerprofileeditComponent } from './profile/ownerprofileedit/ownerprofi
 
 
 @NgModule({
-  declarations: [ProfileComponent, OwnerprofileheaderComponent, OwnerplaygroundComponent, OwnerinfoComponent, OwnerprofileeditComponent],
+  declarations: [
+    ProfileComponent,
+     OwnerprofileheaderComponent,
+      OwnerplaygroundComponent, 
+      OwnerinfoComponent, 
+      OwnerprofileeditComponent,
+      
+    
+    ],
   imports: [
     CommonModule,
     OwnerRoutingModule

@@ -26,6 +26,9 @@ import { Cards1Component } from "./core/home/components/cards1/cards1.component"
 import { AccordionComponent } from "./core/home/components/accordion/accordion.component";
 import { SliderComponent } from "./core/home/components/slider/slider.component";
 import { ContactUsComponent } from "./core/home/components/contact-us/contact-us.component";
+import { ImagesComponent } from "./core/home/components/images/images.component";
+import { RegisterButtonComponent } from "./core/home/components/register-button/register-button.component";
+import { RegisterButtonUserComponent } from "./core/home/components/register-button-user/register-button-user.component";
 
 
 
@@ -48,8 +51,10 @@ import { ContactUsComponent } from "./core/home/components/contact-us/contact-us
     Cards1Component,
     AccordionComponent,
     SliderComponent,
-    ContactUsComponent
-
+    ContactUsComponent,
+    ImagesComponent,
+    RegisterButtonComponent,
+    RegisterButtonUserComponent,
 
   ],
   imports: [
