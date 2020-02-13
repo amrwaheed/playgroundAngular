@@ -17,6 +17,16 @@ import { RegisterComponent as ownerRegister } from './features/auth/owner/regist
 // auth user
 import { RegisterComponent as userRegister } from './features/auth/user/register/register.component';
 import { LoginComponent  as userlogin } from './features/auth/user/login/login.component';
+
+// home COmponents
+import { Cards0Component } from "./core/home/components/cards0/cards0.component";
+import { Cards1Component } from "./core/home/components/cards1/cards1.component";
+import { AccordionComponent } from "./core/home/components/accordion/accordion.component";
+import { SliderComponent } from "./core/home/components/slider/slider.component";
+import { ContactUsComponent } from "./core/home/components/contact-us/contact-us.component";
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,8 +41,12 @@ import { LoginComponent  as userlogin } from './features/auth/user/login/login.c
     userRegister,
     userlogin,
     //--------//
-    
-
+    //home components
+    Cards0Component,
+    Cards1Component,
+    AccordionComponent,
+    SliderComponent,
+    ContactUsComponent
 
 
   ],
