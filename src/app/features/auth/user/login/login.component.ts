@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { UserService } from 'src/app/_services/user/user.service';
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,36 +11,30 @@ export class LoginComponent implements OnInit {
 
   loginform: FormGroup;
 
-  get email() {
-    return this.loginform.get('email');
-  };
+
+  get username() {
+    return this.loginform.get('username')
+  }
   get password() {
-    return this.loginform.get('password');     
-  };
-  
-  constructor(
-    private userService:UserService,
-    private router:Router
-    ) { }
+    return this.loginform.get('password')
+  }
+
+
+
+  savaFormData() {
+ 
+    console.log(this.loginform.value)
+  }
+
+  constructor() { }
 
   ngOnInit() {
+
     this.loginform = new FormGroup({
-      'email': new FormControl('', Validators.required),
-      'password': new FormControl('', Validators.required),
+      'username': new FormControl('', [Validators.required, Validators.maxLength(5)]),
+      'password': new FormControl('', [Validators.required, Validators.maxLength(5)]),
     });
 
   }
-  // form submitting & checking received data from loginform
-  onSubmit(){
-    this.userService.loginUser(this.loginform.controls.email.value, this.loginform.controls.password.value)
-    .subscribe(
-        result => {
-        this.router.navigate(["/userProfile"]);
-        },
-        error=>{
-          console.log(error.error);
-        })
-    }
 
-
-} 
+}
