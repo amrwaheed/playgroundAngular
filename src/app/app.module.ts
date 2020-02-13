@@ -2,10 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { CustomFormsModule } from 'ng2-validation';
-import { FormsModule } from '@angular/forms';
-
-
 
 
 
@@ -20,7 +16,7 @@ import { LoginComponent as ownerlogin } from './features/auth/owner/login/login.
 import { RegisterComponent as ownerRegister } from './features/auth/owner/register/register.component';
 // auth user
 import { RegisterComponent as userRegister } from './features/auth/user/register/register.component';
-import { LoginComponent as userlogin } from './features/auth/user/login/login.component';
+import { LoginComponent  as userlogin } from './features/auth/user/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +31,7 @@ import { LoginComponent as userlogin } from './features/auth/user/login/login.co
     userRegister,
     userlogin,
     //--------//
-
+    
 
 
 
@@ -45,12 +41,9 @@ import { LoginComponent as userlogin } from './features/auth/user/login/login.co
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CustomFormsModule,
-    FormsModule
 
 
-
-
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

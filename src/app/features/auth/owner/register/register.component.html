@@ -7,44 +7,35 @@
             <!-- // ID // -->
             <div class="form-group">
                 <label for="id">User ID</label>
-                <input type="text" class="form-control" id="id" formControlName="id" placeholder="ID" number>
+                <input type="text" class="form-control" id="id" formControlName="id" placeholder="ID">
                 <span *ngIf="id.touched &&  id.errors?.required"> this is required </span>
-                <span *ngIf="id.errors?.number"> Id must be number </span>
-
             </div>
             <!-- // first_name //  -->
             <div class="form-group">
                 <label for="first_name">First Name</label>
-                <input type="text" class="form-control" formControlName="fname" placeholder="first name" min>
+                <input type="text" class="form-control" formControlName="fname" placeholder="first name">
                 <span *ngIf="fname.touched &&  fname.errors?.required"> this is required </span>
-                <span *ngIf="fname.errors?.min"> minLength must be 6 </span>
-
             </div>
             <!-- // last_name //  -->
 
             <div class="form-group">
                 <label for="last_name">last name</label>
-                <input type="text" class="form-control" formControlName="lname" placeholder="last name" min>
+                <input type="text" class="form-control" formControlName="lname" placeholder="last name">
                 <span *ngIf="lname.touched &&  lname.errors?.required"> this is required </span>
-                <span *ngIf="lname.errors?.min"> minLength must be 6 </span>
-
             </div>
 
             <!-- // email //  -->
             <div class="form-group">
                 <label for="email">email</label>
-                <input type="text" class="form-control" formControlName="email" placeholder="E-Mail" email>
-                <span *ngIf="email.touched && email.errors?.required"> this is required</span>
-                <span *ngIf="email.errors?.email">this field must be email </span>
-
+                <input type="text" class="form-control" formControlName="email" placeholder="email">
+                <span *ngIf="email.touched &&  email.errors?.required"> this is required must be email </span>
             </div>
 
             <!-- // phone //  -->
             <div class="form-group">
                 <label for="phone">phone</label>
-                <input type="text" class="form-control" formControlName="phone" placeholder="phone" phone>
-                <span *ngIf="phone.touched && phone.errors?.required"> this is required </span>
-                <span *ngIf="phone.errors?.phone">this field must be phone </span>
+                <input type="text" class="form-control" formControlName="phone" placeholder="phone">
+                <span *ngIf="phone.touched && phone.errors?.required"> must be phone</span>
             </div>
 
             <!-- // address //  -->
@@ -64,9 +55,11 @@
                     </div>
 
                 </div>
+                <!-- <span *ngIf="address.touched &&  address.errors?.required"> this is required </span> -->
             </div>
 
             <!-- // password //  -->
+
             <div class="form-group">
                 <label for="password">password </label>
                 <input type="text" class="form-control" formControlName="password" placeholder="password">

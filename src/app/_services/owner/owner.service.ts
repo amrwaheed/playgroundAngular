@@ -1,28 +1,18 @@
 import { Injectable } from '@angular/core';
+import{ HttpClient } from '@angular/common/http'
 import { Owner } from 'src/app/_models/owner/owner';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class OwnerService {
-  baseUrl: string = "http://localhost:5000/api/";
+  baseUrl :string = "http://localhost:5000/api/" ;
 
-  registerOwner(ownerObject: Owner) {
+  registerOwner( ownerObject:Owner ){
 
-    return this.http.post<Owner>(this.baseUrl + 'auth/owner/register', ownerObject);
-
-  }
-  public loginOwner(email, password) {
-    const owner = {
-      email: email,
-      password: password
-    }
-    const headers = new HttpHeaders()
-      .set('Content-Type', 'application/json')
-    return this.http.post(this.baseUrl + "/auth/owner/login", JSON.stringify(owner), { headers: headers })
-
+   return this.http.post<Owner>(this.baseUrl+'auth/owner/register',ownerObject);
+   
   }
 
 
-  constructor(private http: HttpClient) { }
+  constructor( private http:HttpClient) { }
 }

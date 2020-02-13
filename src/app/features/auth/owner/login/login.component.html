@@ -1,27 +1,24 @@
 <div class="row">
     <div class="col-8 offset-2">
-        <h3 class="text-center font-weight-bold">Owner Login</h3>
-        <form [formGroup]="loginform" (ngSubmit)="savaFormData()">
+        <h3 class="text-center">Owner Login</h3>
+        <form [formGroup]="loginform">
 
-            <!-- // E-Mail //  -->
+            <!-- // User Name //  -->
             <div class="form-group">
-
-                <label for="email" class="font-weight-bold">E-Mail</label>
-                <input type="text" class="form-control" formControlName="email" placeholder="E-Mail" email>
-                <span *ngIf="email.touched && email.errors?.required"> this field is required </span>
-                <span *ngIf="email.errors?.email">this field must be email </span>
-
+                <label for="phone">User Name</label>
+                <input type="text" class="form-control" formControlName="username" placeholder="User Name">
+                <span *ngIf="username.touched && username.errors?.required"> this is required </span>
             </div>
 
             <!-- // password //  -->
+
             <div class="form-group">
-                <label for="password" class="font-weight-bold">Password </label>
-                <input type="password" class="form-control" formControlName="password" placeholder="password">
-                <span *ngIf="password.touched && password.errors?.required"> this field is required </span>
-                <span *ngIf="password.errors?.rangeLength"> rangeLength must be 6 : 14 </span>
+                <label for="password">password </label>
+                <input type="text" class="form-control" formControlName="password" placeholder="password" digits>
+                <span *ngIf="password.touched && password.errors?.required"> this is required </span>
             </div>
 
-            <input type="submit" value="login" class="btn btn-outline-success btn-lg btn-block">
+            <input type="submit" value="login" class="btn btn-primary ">
 
         </form>
 

@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { OwnerService } from 'src/app/_services/owner/owner.service';
-import { CustomValidators } from 'ng2-validation';
-import { Router } from '@angular/router';
 
 
 
@@ -12,47 +9,31 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   loginform: FormGroup;
 
-
-  get email() {
-    return this.loginform.get('email')
+  
+  get username() {
+    return this.loginform.get('username')
   }
-
   get password() {
     return this.loginform.get('password')
   }
 
 
+  savaFormData() {
+    // this.user.push(this.AddingForm.value)
+    console.log(this.loginform.value)
+  }
 
-  constructor(
-    private ownerService: OwnerService,
-    private Router: Router
-  ) { }
-
-
+  constructor() { }
 
   ngOnInit() {
 
     this.loginform = new FormGroup({
-      'email': new FormControl('', [Validators.required, CustomValidators.email]),
-      'password': new FormControl('', [Validators.required, CustomValidators.rangeLength([6, 14])]),
-
+      'username': new FormControl('', [Validators.required, Validators.maxLength(5)]),
+      'password': new FormControl('', [Validators.required, Validators.maxLength(5)]),
     });
-
-  }
-
-  savaFormData() {
-    this.ownerService.loginOwner(this.loginform.controls.email.value, this.loginform.controls.password.value)
-      .subscribe(
-        result => {
-          this.Router.navigate(["/ownerProfile"]);
-        },
-        error => {
-          console.log(error.error);
-        })
-
+  
   }
 
 }
