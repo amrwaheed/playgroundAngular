@@ -33,7 +33,7 @@ export class UserService {
 
   userLogout(){
     localStorage.removeItem('Authorization');
-    this.router.navigate(["/login"]);
+    this.router.navigate(["/"]);
   }
 
 
@@ -43,10 +43,12 @@ export class UserService {
 
   isLoggedIn(){
     let userPayload = this.getUserPayLoad();
+    // console.log("payload ", userPayload)
     if (userPayload) {
-      return userPayload.exp > Date.now() / 1000;
+      return userPayload.exp > Date.now() / 1000
     }else{
-      return false;
+      // return {"false":false,"type":userPayload.type};
+      return 'user';
     }
   }
 

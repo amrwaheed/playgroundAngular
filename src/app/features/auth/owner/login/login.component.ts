@@ -37,10 +37,13 @@ export class LoginComponent implements OnInit {
 
   }
 
-  savaFormData() {
-    this.ownerService.loginOwner(this.loginform.controls.email.value, this.loginform.controls.password.value)
+  savaFormData(formData:FormData) {
+    this.ownerService.loginOwner(formData['email'], formData["password"])
       .subscribe(
         result => {
+          localStorage.setItem("Authorization", result["token"]);
+          console.log(result)
+          localStorage.getItem('Authorization');
           this.Router.navigate(["/ownerProfile"]);
         },
         error => {

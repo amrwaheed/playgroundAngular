@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CustomFormsModule } from 'ng2-validation';
-
-
-
+import { AuthGuard } from './_authenticaton/auth.guard';
+import { AuthInterceptor } from './_authenticaton/auth.interceptor';
+import { UserService } from './_services/user/user.service';
+import { OwnerService } from './_services/owner/owner.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -67,7 +68,13 @@ import { RegisterButtonUserComponent } from "./core/home/components/register-but
 
     
   ],
-  providers: [],
+  providers: [{ 
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true }
+    ,UserService
+    ,OwnerService
+    , AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

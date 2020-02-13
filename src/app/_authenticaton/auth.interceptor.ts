@@ -29,9 +29,10 @@ export class AuthInterceptor implements HttpInterceptor {
                 tap(
                     event =>{},
                     error =>{
-                        if (error.error.auth == false) {
-                            this.router.navigateByUrl('/userlogin');
-                        }
+                        console.log(error.error)
+                        // if (error.error.auth == false) {
+                        //     this.router.navigateByUrl('/userlogin');
+                        // }
                     }
                 )
             );

@@ -7,18 +7,18 @@
             <!-- // first_name //  -->
             <div class="form-group">
                 <label for="first_name">First Name</label>
-                <input type="text" class="form-control" formControlName="firstName" placeholder="first name">
+                <input type="text" class="form-control" formControlName="firstName" placeholder="first name" minlength="3">
                 <span *ngIf="firstName.touched &&  firstName.errors?.required"> this is required </span>
-                <span *ngIf="firstName.errors?.min"> minLength must be 6 </span>
+                <span *ngIf="firstName.errors?.min"> minLength must be 3 </span>
 
             </div>
             <!-- // last_name //  -->
 
             <div class="form-group">
                 <label for="last_name">last name</label>
-                <input type="text" class="form-control" formControlName="lastName" placeholder="last name">
+                <input type="text" class="form-control" formControlName="lastName" placeholder="last name" minlength="3">
                 <span *ngIf="lastName.touched &&  lastName.errors?.required"> this is required </span>
-                <span *ngIf="lastName.errors?.min"> minLength must be 6 </span>
+                <span *ngIf="lastName.errors?.min"> minLength must be 3 </span>
 
             </div>
 

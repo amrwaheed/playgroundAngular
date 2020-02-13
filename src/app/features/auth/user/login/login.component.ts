@@ -23,15 +23,10 @@ export class LoginComponent implements OnInit {
 
 
 
-  savaFormData() {
- 
-    console.log(this.loginform.value)
-  }
-
   constructor(
-    private userService:UserService,
-    private router:Router
-    ) { }
+    private userService: UserService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
 
@@ -41,16 +36,21 @@ export class LoginComponent implements OnInit {
     });
 
   }
-  onSubmit(){
-    this.userService.loginUser(this.loginform.controls.email.value, this.loginform.controls.password.value)
-    .subscribe(
+  onSubmit(formData: FormData) {
+    console.log("form Data", formData)
+    this.userService.loginUser(formData['email'], formData["password"])
+      .subscribe(
         result => {
-        this.router.navigate(["/userProfile"]);
+          localStorage.setItem("Authorization", result["token"]);
+          console.log(result)
+          localStorage.getItem('Authorization');
+
+          this.router.navigate(["/userProfile"]);
         },
-        error=>{
+        error => {
           console.log(error.error);
         })
-    }
+  }
 
 
 }

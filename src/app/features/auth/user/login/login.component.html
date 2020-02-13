@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-8 offset-2">
         <h3 class="text-center">Player Login</h3>
-        <form [formGroup]="loginform" (ngSubmit)="onSubmit()" #form="ngForm">
+        <form [formGroup]="loginform" (ngSubmit)="onSubmit(loginform.value)" #form="ngForm">
 
             <!-- // User Name //  -->
             <div class="form-group">

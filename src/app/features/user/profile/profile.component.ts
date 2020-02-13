@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.userService.getUserProfile().subscribe(
       response =>{
-        console.log(response);
+        // console.log(response);
         this.userData = response['User'];
         //this.router.navigateByUrl('/userProfile')
       }
