@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CustomFormsModule } from 'ng2-validation';
+
 
 
 
@@ -55,6 +57,7 @@ import { ContactUsComponent } from "./core/home/components/contact-us/contact-us
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CustomFormsModule
 
 
     

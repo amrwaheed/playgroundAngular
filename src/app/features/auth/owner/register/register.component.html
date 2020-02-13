@@ -10,6 +10,8 @@
                 <label for="first_name">First Name</label>
                 <input type="text" class="form-control" formControlName="firstName" placeholder="first name">
                 <span *ngIf="firstName.touched &&  firstName.errors?.required"> this is required </span>
+                <span *ngIf="firstName.errors?.min"> minLength must be 6 </span>
+
             </div>
             <!-- // last_name //  -->
 
@@ -17,6 +19,8 @@
                 <label for="last_name">last name</label>
                 <input type="text" class="form-control" formControlName="lastName" placeholder="last name">
                 <span *ngIf="lastName.touched &&  lastName.errors?.required"> this is required </span>
+                <span *ngIf="lastName.errors?.min"> minLength must be 6 </span>
+
             </div>
             
             <div class="form-group">
@@ -30,6 +34,8 @@
                 <label for="email">email</label>
                 <input type="email" class="form-control" formControlName="email" placeholder="email">
                 <span *ngIf="email.touched &&  email.errors?.required"> this is required must be email </span>
+                <span *ngIf="email.errors?.email">this field must be email </span>
+
             </div>
 
             <!-- // phone //  -->
@@ -37,6 +43,8 @@
                 <label for="phone">phone</label>
                 <input type="text" class="form-control" formControlName="phone" placeholder="phone">
                 <span *ngIf="phone.touched && phone.errors?.required"> must be phone</span>
+                <span *ngIf="phone.errors?.phone">this field must be phone </span>
+
             </div>
 
             <!-- // address //  -->
