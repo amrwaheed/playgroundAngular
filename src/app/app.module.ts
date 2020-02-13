@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CustomFormsModule } from 'ng2-validation';
+
 
 
 
@@ -41,6 +43,7 @@ import { LoginComponent  as userlogin } from './features/auth/user/login/login.c
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CustomFormsModule
 
 
     

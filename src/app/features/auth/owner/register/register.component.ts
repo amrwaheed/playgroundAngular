@@ -6,6 +6,8 @@ import { GovernorateService } from 'src/app/_services/governorate/governorate.se
 import { Governorate } from 'src/app/_models/governorate/governorate';
 import { City } from 'src/app/_models/city/city';
 import { OwnerService } from 'src/app/_services/owner/owner.service';
+import { CustomValidators } from 'ng2-validation';
+
 
 
 @Component({
@@ -70,15 +72,15 @@ export class RegisterComponent implements OnInit {
     
     this.registerForm = new FormGroup({
     
-      'firstName': new FormControl('', Validators.required),
-      'lastName': new FormControl('', Validators.required),
-      'username': new FormControl('', Validators.required),
+      'firstName': new FormControl('', [Validators.required, Validators.min(6)]),
+      'lastName': new FormControl('', [Validators.required, Validators.min(6)]),
+      'username': new FormControl('', [Validators.required, CustomValidators.phone('zh-CN')]),
       'phone': new FormControl('', Validators.required), //phone valid 
       "address": new FormGroup({
           "governorate_id" : new FormControl(1,Validators.required),
           "city_id" : new FormControl(1,Validators.required)
         }),  //create formgroup for Address
-      'email': new FormControl('', Validators.required), // email valid 
+      'email': new FormControl('', [Validators.required, CustomValidators.email]), // email valid 
       'password': new FormControl('', Validators.required),
     })
 
