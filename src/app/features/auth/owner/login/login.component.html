@@ -21,9 +21,14 @@
                 <span *ngIf="password.errors?.rangeLength"> rangeLength must be 5 : 9 </span>
             </div>
 
-            <input type="submit" value="login" class="btn btn-outline-success btn-lg btn-block">
-
+            <input type="submit" value="login" class="btn btn-outline-success btn-lg ">
+            <!-- Rgisiter Button -->
+            <div class="text-center">
+                <a href="" class="btn btn-default btn-rounded my-3 p-3" routerLink="/ownerRegister"
+                        style="width: 30%;"><i class="fas fa-user-plus mr-1"></i>Rgisiter</a>
+            </div>
         </form>
-
+            
+      
     </div>
 </div>
