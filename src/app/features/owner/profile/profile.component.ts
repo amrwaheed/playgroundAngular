@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
-  ownerData;
+
   constructor(
     private ownerervice: OwnerService,
     private router :Router 
@@ -17,20 +17,20 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
 
-    this.ownerervice.getOwnerProfile().subscribe(
-      response =>{
-        // console.log(response);
-        this.ownerData = response['Owner'];
-        //this.router.navigateByUrl('/userProfile')
-      }
-      ,
-      error =>{ 
-        console.log(error)
-        this.router.navigateByUrl('/ownerlogin')
-        this.ownerData =error.error;
+    // this.ownerervice.getOwnerProfile().subscribe(
+    //   response =>{
+    //     console.log(response);
+    //     this.ownerData = response['Owner'];
+    //     //this.router.navigateByUrl('/userProfile')
+    //   }
+    //   ,
+    //   error =>{ 
+    //     console.log(error)
+    //     this.router.navigateByUrl('/ownerlogin')
+    //     this.ownerData =error.error;
 
-      }
-    )
+    //   }
+    // )
 
   }
 

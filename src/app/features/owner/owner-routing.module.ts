@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
-import { OwnerprofileeditComponent } from './profile/ownerprofileedit/ownerprofileedit.component';
+
 import { OwnerplaygroundComponent } from './profile/ownerplayground/ownerplayground.component';
+import { EditPorfileComponent } from './profile/edit-porfile/edit-porfile.component';
 
 
 const routes: Routes = [
@@ -11,7 +12,7 @@ const routes: Routes = [
     // {path:"details",component:DetailsdepartmentComponent},
 
   ]},
-  {path:"EditProfile",component:OwnerprofileeditComponent},
+  {path:"EditProfile",component:EditPorfileComponent},
   {path:"playground",component:OwnerplaygroundComponent},
 ];
 
