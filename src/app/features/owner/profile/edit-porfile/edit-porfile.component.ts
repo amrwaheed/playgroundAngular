@@ -63,6 +63,13 @@ export class EditPorfileComponent implements OnInit {
 
     })
   }
+  get_Gov_Citiesbyid(id) {
+
+    this.cityService.getCity(id).subscribe(cityData => {
+      this.cities = cityData
+
+    })
+  }
   ngOnInit() {
 
      // assign governorates data GET
@@ -77,7 +84,7 @@ export class EditPorfileComponent implements OnInit {
       'imageProfile': new FormControl(""),
       'firstName': new FormControl(this.ownerDetails.firstName, [Validators.required]),
       'lastName': new FormControl(this.ownerDetails.lastName, [Validators.required]),
-      'username': new FormControl(this.ownerDetails.userName, Validators.required),
+      'username': new FormControl(this.ownerDetails.username, Validators.required),
       'phone': new FormControl(this.ownerDetails.phone, Validators.required), //phone valid 
       "address": new FormGroup({
         "governorate_id": new FormControl(),
@@ -88,7 +95,7 @@ export class EditPorfileComponent implements OnInit {
     })
 
     this.ownerServeice.getOwnerProfile().subscribe(data =>{
-      console.log(data)
+      // console.log(data)
       this.ownerDetails = data;
       
       this.editForm.get("firstName").setValue(this.ownerDetails.firstName);
@@ -96,7 +103,7 @@ export class EditPorfileComponent implements OnInit {
       this.editForm.get("username").setValue(this.ownerDetails.username);
       this.editForm.get("phone").setValue(this.ownerDetails.phone);
 
-console.log(this.editForm)
+      this.get_Gov_Citiesbyid(this.ownerDetails.address.governorate_id._id)
       this.editForm.get("address.governorate_id").setValue(this.ownerDetails.address.governorate_id._id);
       this.editForm.get("address.city_id").setValue(this.ownerDetails.address.city_id._id);
       
