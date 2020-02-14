@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
 
-import { OwnerplaygroundComponent } from './profile/ownerplayground/ownerplayground.component';
+
 import { EditPorfileComponent } from './profile/edit-porfile/edit-porfile.component';
+import { AddPlaygroundComponent } from './profile/add-playground/add-playground.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,7 @@ const routes: Routes = [
 
   ]},
   {path:"EditProfile",component:EditPorfileComponent},
-  {path:"playground",component:OwnerplaygroundComponent},
+  {path:"playground",component:AddPlaygroundComponent},
 ];
 
 @NgModule({

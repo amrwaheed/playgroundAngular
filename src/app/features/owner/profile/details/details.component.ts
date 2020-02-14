@@ -18,13 +18,11 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
     this.ownerervice.getOwnerProfile().subscribe(
       response =>{
-        console.log(response);
         this.ownerData = response;
-        //this.router.navigateByUrl('/userProfile')
       }
       ,
       error =>{ 
-        console.log(error)
+       
         this.router.navigateByUrl('/ownerlogin')
         this.ownerData =error.error;
 

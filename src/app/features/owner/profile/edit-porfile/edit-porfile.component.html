@@ -59,7 +59,7 @@
                             <span className="input-group-addon">
                                 <span className="glyphicon glyphicon-lock"></span>
                             </span>
-                            <select class="form-control" formControlName="governorate_id"
+                            <select class="form-control " formControlName="governorate_id"
                                 (change)="get_Gov_Cities($event)">
                                 <option *ngFor="let governorate of governorates" [value]="governorate._id">
                                     {{governorate.name}}</option>
