@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   governorates: Governorate[] = [];
   cities: City[] = [];
   isValid: boolean = false;
-
+  
 
 
   get firstName() {
@@ -90,14 +90,13 @@ export class RegisterComponent implements OnInit {
 
 
   onSubmit() {
-    console.log(this.registerForm)
-    console.log(this.registerForm.value)
+   
     this.registerForm.value.phone = +this.registerForm.value.phone;
     this.registerForm.value.address.governorate_id = +this.registerForm.value.address.governorate_id;
     this.registerForm.value.address.city_id = +this.registerForm.value.address.city_id;
-    console.log(this.registerForm.value)
+
     this.userServeice.registerUser(this.registerForm.value).subscribe(data => {
-      console.log(data)
+
       this.router.navigate(['/userProfile'])
     }, error => { console.log(error.error) })
 

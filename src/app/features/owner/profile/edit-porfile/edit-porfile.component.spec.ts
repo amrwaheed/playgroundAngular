@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OwnerprofileheaderComponent } from './ownerprofileheader.component';
+import { EditPorfileComponent } from './edit-porfile.component';
 
-describe('OwnerprofileheaderComponent', () => {
-  let component: OwnerprofileheaderComponent;
-  let fixture: ComponentFixture<OwnerprofileheaderComponent>;
+describe('EditPorfileComponent', () => {
+  let component: EditPorfileComponent;
+  let fixture: ComponentFixture<EditPorfileComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OwnerprofileheaderComponent ]
+      declarations: [ EditPorfileComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OwnerprofileheaderComponent);
+    fixture = TestBed.createComponent(EditPorfileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

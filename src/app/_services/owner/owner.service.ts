@@ -8,13 +8,13 @@ import { Router } from '@angular/router';
 export class OwnerService {
   baseUrl :string = "http://localhost:5000/api" ;
 
-  registerOwner( ownerObject:Owner ){
+  registerOwner( ownerObject:Owner ){ // register new Owner
 
    return this.http.post<Owner>(this.baseUrl+'/auth/owner/register',ownerObject);
    
   }
 
-  public loginOwner(email, password) {
+  public loginOwner(email, password) {  // login function 
     const owner = {
       email: email,
       password: password
@@ -26,9 +26,18 @@ export class OwnerService {
   }
 
 
-  getOwnerProfile(){
+  getOwnerProfile(){ // get information for owner 
     return this.http.get(this.baseUrl+"/owner/profile");
   }
+
+
+  editOwnerProfile( ownerObject:Owner){
+    return this.http.put(this.baseUrl+"/owner/profile",ownerObject)
+  }
+
+
+
+
 
   ownerLogout(){
     localStorage.removeItem('Authorization');
