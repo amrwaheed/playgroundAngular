@@ -25,7 +25,7 @@
             <h3>{{ ownerData.username  }}</h3>
   
   
-            <a class="nav-link" routerLink="EditProfile">Edit</a>
+            <a class="nav-link" routerLink="EditProfile">Edit profile</a>
   
             <a class="nav-link" routerLink="playground">Add playground</a>
   
@@ -46,8 +46,8 @@
             <h5>Phone number : 0{{ownerData.phone}}</h5>
             <h5>E-mail: {{ownerData.email}}</h5>
             <h5>
-              Address : {{ ownerData.address.city_id.name  }},
-                        {{ ownerData.address.governorate_id.name  }}
+              Address : {{ ownerData.address?.city_id.name  }},
+                        {{ ownerData.address?.governorate_id.name  }}
             </h5>
             <hr>
   
