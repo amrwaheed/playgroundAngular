@@ -8,12 +8,21 @@ import { Router } from '@angular/router';
 export class OwnerService {
   baseUrl :string = "http://localhost:5000/api" ;
 
+  /**
+   * 
+   * @param ownerObject 
+   */
   registerOwner( ownerObject:Owner ){ // register new Owner
 
    return this.http.post<Owner>(this.baseUrl+'/auth/owner/register',ownerObject);
    
   }
 
+  /**
+   * 
+   * @param email 
+   * @param password 
+   */
   public loginOwner(email, password) {  // login function 
     const owner = {
       email: email,
@@ -25,12 +34,17 @@ export class OwnerService {
 
   }
 
-
-  getOwnerProfile(){ // get information for owner 
+/**
+ * // get information for owner 
+ */
+  getOwnerProfile(){ 
     return this.http.get(this.baseUrl+"/owner/profile");
   }
 
-
+  /**
+   * Edit function 
+   * @param ownerObject 
+   */
   editOwnerProfile( ownerObject:Owner){
     return this.http.put(this.baseUrl+"/owner/profile",ownerObject)
   }
