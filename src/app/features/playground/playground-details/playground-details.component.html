@@ -1,0 +1,14 @@
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" [src]="playground.image" alt="">
+    <div class="card-body">
+      <h5 class="card-title"> Name :{{ playground.name}}</h5>
+      <p class="card-text">Details: {{ playground.details}}</p>
+      <p class="card-text"> Category:  {{ playground.category_id.name}}</p>
+      <p class="card-text"> Day Price:{{ playground.dayPrice}}</p>
+      <p class="card-text"> night Price :{{ playground.nightPrice}}</p>
+      <p class="card-text"> Owner :{{ playground.owner_id.username}}</p>
+      <p class="card-text" *ngIf="playground.covered">Covered</p>
+      <p class="card-text" *ngIf="!playground.covered">Open</p>
+      <a href="#" class="btn btn-primary">Booking table </a>
+    </div>
+  </div>

@@ -1,0 +1,163 @@
+
+<div id="div_form" class="tab_content bg-dark">
+    <form action="">
+      <div class="container">
+        <div class="well clearfix">
+          <fieldset class="well well-form">
+            <legend class="well-legend">Booking Details</legend>
+            <div class="">
+              <div class="col-xs-2">
+                <label class="control-label" for="booking-id">ID</label>
+                <input class="form-control" type="text" name="booking-id" id="booking-id" placeholder="ID Booking" readonly/>
+              </div>
+  
+              <div class="col-xs-4">
+                <label class="control-label" for="booking-date">Booking Date</label>
+  
+                <div class="form-group input-group">
+                  <span class="input-group-addon "><i class="fa fa-calendar"></i></span>
+                  <input class="form-control" type="text" name="booking-date" id="booking-date" placeholder="Booking Date" />
+                </div>
+              </div>
+  
+              <div class="col-xs-4">
+                <label class="control-label" for="booking-date">Check In</label>
+  
+                <div class="form-group input-group">
+                  <span class="input-group-addon "><i class="fa fa-calendar-check-o"></i></span>
+                  <input class="form-control" type="text" name="booking-date" id="booking-date" placeholder="Check In" />
+                </div>
+              </div>
+  
+  
+              <div class="col-xs-2">
+                <label class="control-label" for="form_days">Days</label>
+                <select class="form-control" id="form_days" name="days">
+                              <option selected value=1>1</option>
+                              <option value=2>2</option>
+                              <option value=3>3</option>
+                              <option value=4>4</option>
+                              <option value=5>5</option>
+                              <option value=6>6</option>
+                              <option value=7>7</option>
+                              <option value=8>8</option>
+                              <option value=9>9</option>
+                              <option value=10>10</option>
+            </select>
+              </div>
+            </div>
+            <!-- end Row -->
+            <div class="">
+              <div class="col-xs-2">
+                <label class="control-label" for="form_days">Adults</label>
+                <select class="form-control" id="form_days" name="days">
+                              <option selected value=1>1</option>
+                              <option value=2>2</option>
+                              <option value=3>3</option>
+                              <option value=4>4</option>
+                              <option value=5>5</option>
+                              <option value=6>6</option>
+                              <option value=7>7</option>
+                              <option value=8>8</option>
+                              <option value=9>9</option>
+                              <option value=10>10</option>
+            </select>
+              </div>
+  
+              <div class="col-xs-2">
+                <label class="control-label" for="form_days">Children</label>
+                <select class="form-control" id="form_days" name="days">
+                              <option selected value=1>1</option>
+                              <option value=2>2</option>
+                              <option value=3>3</option>
+                              <option value=4>4</option>
+                              <option value=5>5</option>
+                              <option value=6>6</option>
+                              <option value=7>7</option>
+                              <option value=8>8</option>
+                              <option value=9>9</option>
+                              <option value=10>10</option>
+            </select>
+              </div>
+  
+            </div>
+            <!-- end Row -->
+          </fieldset>
+  
+  
+          <fieldset class="well well-form">
+            <legend class="well-legend">Customer</legend>
+            <div class="">
+              <div class="col-xs-5">
+  
+                <label class="control-label" for="firstname">Name</label>
+                <input class="form-control" type="text" name="firstname" id="firstname" placeholder="Name" />
+  
+                <label class="control-label" for="phoneNumber">Number</label>
+                <div class="form-group input-group">
+                  <span class="input-group-addon primary"><i class="fa fa-phone"></i></span>
+                  <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="Phone Number">
+                </div>
+  
+                <label class="control-label" for="email">Email Address</label>
+                <div class="form-group input-group">
+                  <span class="input-group-addon primary"><i class="fa fa-envelope-o"></i></span>
+                  <input type="text" class="form-control" name="email" id="email" placeholder="Email address">
+                </div>
+  
+  
+              </div>
+  
+              <div class="col-xs-7">
+                <label class="control-label">Message</label>
+                <textarea class="input-xlarge form-control" id="message" name="message" rows="10"></textarea>
+              </div>
+            </div>
+            <!-- end Row -->
+          </fieldset>
+  
+          <fieldset class="well well-form">
+            <legend class="well-legend">Payment</legend>
+            <div class="row">
+  
+              <div class='col-xs-6'>
+                <label class='control-label'>Card Number</label>
+                <div class="form-group input-group">
+                  <span class="input-group-addon primary"><i class="fa fa-credit-card-alt"></i></span>
+                  <input autocomplete='off' class='form-control card-number' size='20' type='text' data-mask="0000 0000 0000 0000">
+                </div>
+              </div>
+  
+  
+              <div class='col-xs-3'>
+                <label class='control-label'>Expiration</label>
+                <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text'>
+              </div>
+              <div class='col-xs-3'>
+                <label class='control-label'> </label>
+                <input class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text'>
+              </div>
+            </div>
+            <!-- end Row -->
+          </fieldset>
+  
+          <div class="row">
+            <div class="col-xs-12">
+              <br/>
+              <button class="btn btn-success "><i class="fa fa-pencil"></i> Edit</button>
+              <button class="btn btn-warning "><i class="fa fa-send"></i> Send email Confirmation</button>
+              <button class="btn btn-info pull-right" type="submit"><i class="fa fa-refresh"></i> Reload calendars</button>
+            </div>
+          </div>
+          <!-- end Row -->
+  
+  
+        </div>
+        <!-- end Well -->
+  
+      </div>
+      <!-- end Container -->
+  
+    </form>
+
+

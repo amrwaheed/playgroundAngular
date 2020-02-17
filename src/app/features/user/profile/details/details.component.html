@@ -1,0 +1,63 @@
+<div class="col-lg-12 col-md-12 mb-4">
+
+    <!--Rotating card-->
+    <div class="card-wrapper" style="height: auto;">
+        <div id="card-3" class="card card-rotating text-center">
+
+            <!--Front Side-->
+            <div class="face front">
+
+                <!-- Image-->
+                <div class="card-up">
+                    <img src="../../../../../assets/img/bg-subheader.jpeg" class="img-fluid animated fadeInLeft"
+                        alt="Image with a photo of clouds.">
+                </div>
+                <!--Avatar-->
+                <div class="avatar mx-auto white">
+                    <img [src]="imgSrc" class="rounded-circle animated bounceInDown" alt="Image of a woman."
+                        style="width: 300px;">
+                </div>
+                <!--Content-->
+                <div class="card-body">
+
+                    <h2>{{ userData.firstName  }} {{userData?.lastName  }}</h2>
+
+                    <h3>{{ userData.username  }}</h3>
+
+
+                    <a class="nav-link" routerLink="EditProfile">Edit profile</a>
+
+                    <a class="nav-link" routerLink="/playground">playground List</a>
+                    
+
+                </div>
+            </div>
+            <!--/.Front Side-->
+
+            <!--Back Side-->
+            <div class="card face back">
+
+                <div class="card-body ">
+
+                    <!--Content-->
+                    <h4>About me</h4>
+                    <hr>
+                    <h5>Phone number : 0{{userData.phone}}</h5>
+                    <h5>E-mail: {{userData.email}}</h5>
+                    <h5>
+                        Address : {{ userData.address?.city_id.name  }},
+                        {{ userData.address?.governorate_id.name  }}
+                    </h5>
+                    <hr>
+
+
+                </div>
+
+            </div>
+            <!--/.Back Side-->
+
+        </div>
+    </div>
+    <!--/.Rotating card-->
+
+</div>

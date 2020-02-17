@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-8 offset-2">
+        <h3 class="text-center">Player Login</h3>
+        <form [formGroup]="loginform" (ngSubmit)="onSubmit(loginform.value)" #form="ngForm">
+
+            <!-- // User Name //  -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" formControlName="email" placeholder="User Email">
+                <span *ngIf="email.touched && email.errors?.required"> this is required </span>
+            </div>
+
+            <!-- // password //  -->
+
+            <div class="form-group">
+                <label for="password">password </label>
+                <input type="password" class="form-control" formControlName="password" placeholder="password" digits>
+                <span *ngIf="password.touched && password.errors?.required"> this is required </span>
+            </div>
+
+            <input type="submit" value="login" class="btn btn-primary ">
+
+        </form>
+        <!-- Form -->
+        <!-- Rgisiter Button -->
+        <div class="text-center">
+            <a href="" class="btn btn-default btn-rounded my-3 p-3" routerLink="/userRgisiter"
+                    style="width: 30%;"><i class="fas fa-user-plus mr-1"></i>Rgisiter</a>
+        </div>
+        <!-- <div class="container">
+    <router-outlet></router-outlet>
+  </div> -->
+    </div>
+</div>
