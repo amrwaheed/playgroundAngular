@@ -1,0 +1,33 @@
+<!-- main  container -->
+<div class="container bg-light">
+        
+    <!-- cards -->
+    <div id="cards" class="bg-light">
+
+        <h3 class="font-weight-light text-center my-3">Find Your PlayGround</h3>
+
+        <!-- full size Card container -->
+        <div class="container-fluid mx-auto d-none d-md-block my-3">
+            <div class="row">
+
+                <!-- Card # -->
+                <div class="col-6 col-lg-3 d-flex mb-3" *ngFor="let playground of playgrounds">
+                    <div class="card flex-fill">
+                        <div class="card-header bg-primary text-light rounded">{{playground.name}}</div>
+                        <div class="card-body">
+                            <img [src]="playground.image" alt="image" class="card-img-top img-fluid" />
+                            <p class="my-2">{{playground.details}}</p> 
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-outline-primary text-primary d-block w-75 mx-auto" routerLink="/playground/{{playground._id}}" >Details</button>
+                        </div>
+                    </div>
+                </div><!-- Card # -->
+
+
+            </div>
+        </div><!-- /full size Card container -->
+
+    </div><!-- /cards -->
+
+</div> <!-- /main container -->
