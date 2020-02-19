@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AgmCoreModule } from '@agm/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CustomFormsModule } from 'ng2-validation';
@@ -7,6 +8,7 @@ import { AuthGuard } from './_authenticaton/auth.guard';
 import { AuthInterceptor } from './_authenticaton/auth.interceptor';
 import { UserService } from './_services/user/user.service';
 import { OwnerService } from './_services/owner/owner.service';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -67,7 +69,10 @@ import { PlaygroundDetailsComponent } from './features/playground/playground-det
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CustomFormsModule
+    CustomFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey:"AIzaSyB90FxtYG_ybAYXGkz0ybkmkboE2nEbezI"
+    })
 
 
     
@@ -78,7 +83,9 @@ import { PlaygroundDetailsComponent } from './features/playground/playground-det
     multi: true }
     ,UserService
     ,OwnerService
-    , AuthGuard],
+    , AuthGuard,
+  
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

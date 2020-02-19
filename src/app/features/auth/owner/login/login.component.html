@@ -1,34 +1,60 @@
-<div class="row">
-    <div class="col-8 offset-2">
-        <h3 class="text-center font-weight-bold">Owner Login</h3>
-        <form [formGroup]="loginform" (ngSubmit)="savaFormData(loginform.value)">
-
-            <!-- // E-Mail //  -->
-            <div class="form-group">
-
-                <label for="email" class="font-weight-bold">E-Mail</label>
-                <input type="text" class="form-control" formControlName="email" placeholder="E-Mail" email>
-                <span *ngIf="email.touched && email.errors?.required"> this field is required </span>
-                <span *ngIf="email.errors?.email">this field must be email </span>
-
-            </div>
-
-            <!-- // password //  -->
-            <div class="form-group">
-                <label for="password" class="font-weight-bold">Password </label>
-                <input type="password" class="form-control" formControlName="password" placeholder="password">
-                <span *ngIf="password.touched && password.errors?.required"> this field is required </span>
-                <span *ngIf="password.errors?.rangeLength"> rangeLength must be 5 : 9 </span>
-            </div>
-
-            <input type="submit" value="login" class="btn btn-outline-success btn-lg ">
-            <!-- Rgisiter Button -->
-            <div class="text-center">
-                <a href="" class="btn btn-default btn-rounded my-3 p-3" routerLink="/ownerRegister"
-                        style="width: 30%;"><i class="fas fa-user-plus mr-1"></i>Rgisiter</a>
-            </div>
-        </form>
-            
-      
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-6 mt-3 mb-3"  style="border:5px solid #d3d1e0;
+                background-color: rgb(255, 255, 255);margin: auto; ">
+            <!-- <h3 class="text-center font-weight-bold">Owner Login</h3> -->
+            <form [formGroup]="loginform" (ngSubmit)="savaFormData(loginform.value)">
+                <legend class="well-legend mt-3">Owner Login</legend>
+                <!-- // E-Mail //  -->
+                <!-- <div class="form-group">
+                    <label for="email" class="font-weight-bold">E-Mail</label>
+                    <input type="text" class="form-control" formControlName="email" placeholder="E-Mail" email>
+                    <span *ngIf="email.touched && email.errors?.required"> this field is required </span>
+                    <span *ngIf="email.errors?.email">this field must be email </span>
+                </div> -->
+    
+                <div class="md-form">
+                    <i class="fas fa-user prefix grey-text"></i>
+                    <input type="text" id="form-email" class="form-control" formControlName="email" email>
+                    <label for="email">E-Mail</label>
+                    <span *ngIf="email.touched && email.errors?.required"> this field is required </span>
+                    <span *ngIf="email.errors?.email">this field must be email </span>
+                  </div>
+    
+                <!-- // password //  -->
+                <!-- <div class="form-group">
+                    <label for="password" class="font-weight-bold">Password </label>
+                    <input type="password" class="form-control" formControlName="password" placeholder="password">
+                    <span *ngIf="password.touched && password.errors?.required"> this field is required </span>
+                    <span *ngIf="password.errors?.rangeLength"> rangeLength must be 5 : 9 </span>
+                </div> -->
+    
+                <div class="md-form">
+                    <i class="fas fa-unlock-alt prefix grey-text"></i>
+                    <input type="password" id="form-name" class="form-control" formControlName="password">
+                    <label for="password">Password</label>
+                    <span *ngIf="password.touched && password.errors?.required"> this field is required </span>
+                    <span *ngIf="password.errors?.rangeLength"> rangeLength must be 5 : 9 </span>
+                </div>
+    
+    
+                <div class="row">
+                    <div class="col-6" >
+                        <input type="submit" value="login" class="btn btn-success btn-rounded my-3 p-3"  
+                            style="width: 200px;border-radius: 30px;">
+                    </div>
+                    <div class="col-6" >
+                        <!-- Rgisiter Button -->
+                        <div class="text-center">
+                            <a href="" class="btn btn-blue btn-rounded my-3 p-3" routerLink="/ownerRegister"
+                                    style="width: 60%;border-radius: 30px;"><i class="fas fa-user-plus mr-1"></i>Rgisiter</a>
+                        </div>
+                    </div>
+                </div>
+    
+            </form>
+                
+          
+        </div>
     </div>
-</div>
+    </div>

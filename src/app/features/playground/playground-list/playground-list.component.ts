@@ -16,9 +16,9 @@ export class PlaygroundListComponent implements OnInit {
 
   ngOnInit() {
     this.playgroundService.getAllPlaygrounds().subscribe(d=> {
-      console.log("d =>",d)  
-      this.playgrounds = d
-      console.log("this.playgrounds",this.playgrounds)
+
+      this.playgrounds = d;
+     
     
     })
   }

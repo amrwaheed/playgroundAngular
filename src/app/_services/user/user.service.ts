@@ -58,7 +58,7 @@ export class UserService {
   editUserProfile(firstName: string, lastName: string, username: string, phone: string,
     governorate_id: string, city_id: string, imageProfile: File
   ) {
-    console.log("serveice :  ", governorate_id)
+     
     const dataform = new FormData();
 
     dataform.append('firstName', firstName)
@@ -70,7 +70,7 @@ export class UserService {
     dataform.append('imageProfile', imageProfile)
 
     // ownerObject
-    // console.log("object sent node ",ownerObject)
+    //  ("object sent node ",ownerObject)
     return this.http.put(this.baseurl + "/user/profile", dataform)
   }
 
@@ -98,7 +98,7 @@ export class UserService {
 
   isLoggedIn() {
     let userPayload = this.getUserPayLoad();
-    // console.log("payload ", userPayload)
+    //  ("payload ", userPayload)
     if (userPayload) {
       return userPayload.exp > Date.now() / 1000
     } else {

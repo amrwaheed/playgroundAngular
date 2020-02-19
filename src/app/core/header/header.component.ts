@@ -14,6 +14,10 @@ statusType:string ;
 
 
   ) { }
+ 
+    logout(){
+      this.userServices.userLogout() 
+      }
 
   ngOnInit() {
     if(this.userServices.getUserPayLoad() != null){
@@ -23,7 +27,7 @@ statusType:string ;
       this.statusType =  "";
 
     }
-    console.log( this.userServices.getUserPayLoad() )
+     ( this.userServices.getUserPayLoad() )
   }
   
   ngDoCheck(): void {

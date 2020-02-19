@@ -14,10 +14,10 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav m-auto">
       <li class="nav-item " routerLinkActive="active" [routerLinkActiveOptions]="{exact:
           true}">
-        <a class="nav-link" routerLink="/">Home</a>
+        <a class="nav-link" routerLink="/"><i class="fas fa-futbol"></i> Home</a>
       </li>
       <!-- <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/ownerlogin">owner login</a>
@@ -32,18 +32,19 @@
         <a class="nav-link" routerLink="/userRgisiter">user Rgisiter</a>
       </li>-->
       <li class="nav-item" routerLinkActive="active" *ngIf="statusType == 'owner'">
-        <a class="nav-link" routerLink="/ownerProfile">owner Profile</a>
+        <a class="nav-link" routerLink="/ownerProfile"><i class="fas fa-user-shield"></i> owner Profile</a>
       </li>
       <li class="nav-item" routerLinkActive="active" *ngIf="statusType == 'user'">
-        <a class="nav-link" routerLink="/userProfile">user Profile</a>
+        <a class="nav-link" routerLink="/userProfile"><i class="fas fa-user"></i> user Profile</a>
       </li> 
      
     </ul>
     <ul class="navbar-nav ml-auto nav-flex-icons">
       <li class="nav-item avatar">
-        <a class="nav-link p-0" href="#">
-          <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
-            alt="avatar image" height="35">
+        <a class="nav-link p-0" routerLink="/" (click)="logout()">
+          <!-- <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
+            alt="avatar image" height="35"> -->
+            <i class="fas fa-power-off prefix yellow-text fa-2x"></i>
         </a>
       </li>
     </ul>

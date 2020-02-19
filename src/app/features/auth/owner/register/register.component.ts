@@ -88,16 +88,16 @@ export class RegisterComponent implements OnInit {
 
 
   onSubmit() {
-    console.log(this.registerForm)
-    console.log(this.registerForm.value)
+    
+     (this.registerForm.value)
     this.registerForm.value.phone = +this.registerForm.value.phone;
     this.registerForm.value.address.governorate_id = +this.registerForm.value.address.governorate_id;
     this.registerForm.value.address.city_id = +this.registerForm.value.address.city_id;
-    console.log(this.registerForm.value)
+     (this.registerForm.value)
     this.ownerServeice.registerOwner(this.registerForm.value).subscribe(data => {
-      console.log(data)
-      this.router.navigate(['/ownerProfile'])
-    }, error => { console.log(error.error) })
+      
+      this.router.navigate(['/ownerlogin'])
+    }, error => {  (error.error) })
 
 
   }

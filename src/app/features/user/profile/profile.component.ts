@@ -19,13 +19,13 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.userService.getUserProfile().subscribe(
       response =>{
-        // console.log(response);
+        //  (response);
         this.userData = response['User'];
         //this.router.navigateByUrl('/userProfile')
       }
       ,
       error =>{ 
-        console.log(error)
+         (error)
         this.router.navigateByUrl('/userlogin')
         this.userData =error.error;
 

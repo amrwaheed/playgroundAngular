@@ -1,33 +1,49 @@
 <!-- main  container -->
-<div class="container bg-light">
-        
-    <!-- cards -->
-    <div id="cards" class="bg-light">
+<div class="container bg-light ">
+    <h3 class="font-weight-light text-center mt-3">Find Your PlayGround</h3>
 
-        <h3 class="font-weight-light text-center my-3">Find Your PlayGround</h3>
+ <!-- Grid row -->
+ <div class="row m-3">
 
-        <!-- full size Card container -->
-        <div class="container-fluid mx-auto d-none d-md-block my-3">
-            <div class="row">
+    <!-- Grid column -->
+    <div class="column-2 px-2 mb-r mt-3 py-3" *ngFor="let playground of playgrounds">
+  
+      <!--Card-->
+      <div class="card default-color-dark">
+  
+        <!--Card image-->
+        <div class="view overlay zoom">
+          <img src="../../../../assets/img/24.jpg" class="card-img-top img-fluid" alt="photo">
+          <a href="#">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+  
+        <!--Card content-->
+        <div class="card-body text-center">
+          <!--Title-->
+          <h4 class="card-title black-text">{{playground.name}}</h4>
+          <!--Text-->
+          <p class="card-text white-text">{{playground.details}}</p>
+          <a href="#" class="btn btn-outline-white btn-md" routerLink="/playground/{{playground._id}}">Details</a>
 
-                <!-- Card # -->
-                <div class="col-6 col-lg-3 d-flex mb-3" *ngFor="let playground of playgrounds">
-                    <div class="card flex-fill">
-                        <div class="card-header bg-primary text-light rounded">{{playground.name}}</div>
-                        <div class="card-body">
-                            <img [src]="playground.image" alt="image" class="card-img-top img-fluid" />
-                            <p class="my-2">{{playground.details}}</p> 
-                        </div>
-                        <div class="card-footer">
-                            <button class="btn btn-outline-primary text-primary d-block w-75 mx-auto" routerLink="/playground/{{playground._id}}" >Details</button>
-                        </div>
-                    </div>
-                </div><!-- Card # -->
-
-
-            </div>
-        </div><!-- /full size Card container -->
-
-    </div><!-- /cards -->
+        </div>
+  
+      </div>
+      <!--/.Card-->
+  
+    </div>
+    <!-- Grid column -->
+  
+  
+  </div>
+  <!-- Grid row -->
 
 </div> <!-- /main container -->
+
+<!-- ********************************************************************************* -->
+
+<!-- main  container -->
+
+
+<!-- ********************************************************************************* -->

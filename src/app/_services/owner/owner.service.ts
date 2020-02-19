@@ -53,7 +53,7 @@ export class OwnerService {
   editOwnerProfile(firstName: string, lastName: string, username: string, phone: string,
     governorate_id: string, city_id: string, imageProfile: File
   ) {
-    console.log("serveice :  ", governorate_id)
+   
     const dataform = new FormData();
 
     dataform.append('firstName', firstName)
@@ -65,7 +65,7 @@ export class OwnerService {
     dataform.append('imageProfile', imageProfile)
 
     // ownerObject
-    // console.log("object sent node ",ownerObject)
+    //  ("object sent node ",ownerObject)
     return this.http.put(this.baseUrl + "/owner/profile", dataform)
   }
 

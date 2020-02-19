@@ -9,12 +9,12 @@
 
                 <!-- Image-->
                 <div class="card-up">
-                    <img src="../../../../../assets/img/bg-subheader.jpeg" class="img-fluid animated fadeInLeft"
+                    <img src="../../../../../assets/img/service-page_02.jpg" class="img-fluid cover animated fadeInLeft"
                         alt="Image with a photo of clouds.">
                 </div>
                 <!--Avatar-->
                 <div class="avatar mx-auto white">
-                    <img [src]="imgSrc" class="rounded-circle animated bounceInDown" alt="Image of a woman."
+                    <img [src]="imgSrc" class="rounded-circle profileimg animated bounceInDown" alt=""
                         style="width: 300px;">
                 </div>
                 <!--Content-->
@@ -22,13 +22,14 @@
 
                     <h2>{{ userData.firstName  }} {{userData?.lastName  }}</h2>
 
-                    <h3>{{ userData.username  }}</h3>
+                    <h5>{{ userData.username  }}</h5>
 
 
                     <a class="nav-link" routerLink="EditProfile">Edit profile</a>
 
-                    <a class="nav-link" routerLink="/playground">playground List</a>
-                    
+                    <!-- <a class="nav-link" routerLink="/playground">playground List</a> -->
+                    <a class="btn btn-black waves-effect waves-light nav-link" routerLink="/playground"><i class="far fa-clone left"></i> playground List</a>
+
 
                 </div>
             </div>

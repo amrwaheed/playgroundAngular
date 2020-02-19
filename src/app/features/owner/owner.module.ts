@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { DetailsComponent } from './profile/details/details.component';
 import { EditPorfileComponent } from './profile/edit-porfile/edit-porfile.component';
 import { AddPlaygroundComponent } from './profile/add-playground/add-playground.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -25,7 +26,11 @@ import { AddPlaygroundComponent } from './profile/add-playground/add-playground.
     CommonModule,
     OwnerRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey:"AIzaSyB90FxtYG_ybAYXGkz0ybkmkboE2nEbezI"
+    })
+
   ]
 })
 export class OwnerModule { }

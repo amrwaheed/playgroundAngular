@@ -10,12 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PlaygroundDetailsComponent implements OnInit {
 
-  playground :Playground = new Playground(
-    1000,"anfield",
-    "image","england , liverpool",
-    {lat:100,lng:100,accuracy:100},100,100,true ,2,1,
-    
-    )
+  playground :Playground = new Playground(0,"")
   constructor(
     private playgroundService :PlaygroundService,
     private aroute:ActivatedRoute 
@@ -23,11 +18,12 @@ export class PlaygroundDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.aroute.params.subscribe(a=>{
-      console.log ("a",a)
+       
       this.playgroundService.getPlaygroundDetails(a.id).subscribe(d=>{
-        // console.log("playground details TS",d)
+        //  ("playground details TS",d)
+        console.log(d)
         this.playground = d ;
-        console.log("this.playground ",this.playground)
+        
 
       })
     })
