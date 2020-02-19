@@ -30,7 +30,7 @@ export class AuthInterceptor implements HttpInterceptor {
                 tap(
                     event =>{ },
                     error =>{
-                        console.log(error.error)
+                         (error.error)
                         
                     }
                 )

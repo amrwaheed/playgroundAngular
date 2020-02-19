@@ -19,13 +19,13 @@ export class ProfileComponent implements OnInit {
 
     // this.ownerervice.getOwnerProfile().subscribe(
     //   response =>{
-    //     console.log(response);
+    //      (response);
     //     this.ownerData = response['Owner'];
     //     //this.router.navigateByUrl('/userProfile')
     //   }
     //   ,
     //   error =>{ 
-    //     console.log(error)
+    //      (error)
     //     this.router.navigateByUrl('/ownerlogin')
     //     this.ownerData =error.error;
 

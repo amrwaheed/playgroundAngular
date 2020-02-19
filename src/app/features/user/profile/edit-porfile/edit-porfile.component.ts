@@ -66,7 +66,7 @@ export class EditPorfileComponent implements OnInit {
   }
   // myImage:ElementRef
   get_Gov_Citiesbyid(id) {
-console.log("get gov city",id)
+
     this.cityService.getCity(id).subscribe(cityData => {
       this.cities = cityData
     
@@ -77,7 +77,7 @@ console.log("get gov city",id)
      // assign governorates data GET
      this.governorateService.getGovernorate().subscribe(governorateData => {
       this.governorates = governorateData
-      console.log(governorateData)
+     
     })
     // assign cities data GET
  
@@ -98,7 +98,7 @@ console.log("get gov city",id)
 
     this.userService.getUserProfile().subscribe(data =>{
       this.userDetails = data;
-      console.log(  this.userDetails)
+  
       this.imageProfilepre = this.userDetails.imageProfile
       this.editForm.get("firstName").setValue(this.userDetails.firstName);
       this.editForm.get("lastName").setValue(this.userDetails.lastName);
@@ -136,9 +136,8 @@ uploadFile(event){
 
   onSubmit() {
 
-   console.log(this.editForm.value)
    const formData = this.editForm.value
-   console.log(formData.address.governorate_id)
+    
     this.userService.editUserProfile(formData['firstName']
                             ,formData['lastName']
                             ,formData['username']
@@ -147,10 +146,10 @@ uploadFile(event){
                             ,formData.address.city_id
                             ,formData['imageProfile']
                             ).subscribe(result =>{
-      console.log( result)
+     
       this.router.navigate(['/userProfile'])
     },err=>{
-      console.log(err)
+       (err)
     })
 
 

@@ -37,18 +37,18 @@ export class LoginComponent implements OnInit {
 
   }
   onSubmit(formData: FormData) {
-    console.log("form Data", formData)
+  
     this.userService.loginUser(formData['email'], formData["password"])
       .subscribe(
         result => {
           localStorage.setItem("Authorization", result["token"]);
-          console.log(result)
-          localStorage.getItem('Authorization');
+         
+          // localStorage.getItem('Authorization');
 
           this.router.navigate(["/userProfile"]);
         },
         error => {
-          console.log(error.error);
+           (error.error);
         })
   }
 

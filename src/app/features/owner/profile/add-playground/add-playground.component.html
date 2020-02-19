@@ -1,7 +1,7 @@
 <div class="col-md-9 pb-3 mb-3 rounded" style="background-color: cadetblue;margin: auto; ">
     <h3 class="pt-3" style="text-align: center;">playground</h3>
 
-<form  (ngSubmit)="onSubmit()" [formGroup]="playgroundForm">
+<form  (ngSubmit)="onSubmit()" [formGroup]="playgroundForm"  enctype="multipart/form-data" >
     <div class="form-group">
 
 
@@ -21,7 +21,7 @@
           </div>
           <div class="custom-file">
             <input type="file" class="custom-file-input" id="inputGroupFile01"
-               formControlName="imageProfile"
+                    (change)="uploadFile($event)" 
                accept="image/x-png,image/gif,image/jpeg"
               aria-describedby="inputGroupFileAddon01">
             <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
@@ -68,6 +68,24 @@
               </div>
           </div>
 
+          <div class="form-group">
+            <label for="address"> Category</label>
+            <div className="form-group">
+                <div className="input-group">
+                    <span className="input-group-addon">
+                        <span className="glyphicon glyphicon-lock"></span>
+                    </span>
+                    <select class="form-control" formControlName="category_id">
+                            
+                        <option *ngFor="let category of categories" [value]="category._id">{{category.name}}</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </div>
         
           <div class="form-group">
               <label for="DayPrice">Day Price</label>
@@ -88,13 +106,13 @@
             <!-- Default unchecked disabled -->
               
         <div class="custom-control custom-radio">
-            <input id="covered" type="radio" class="custom-control-input" value="covered" name="covered" formControlName="covered">
+            <input id="covered" type="radio" class="custom-control-input" value="true" formControlName="covered">
             <label class="custom-control-label" for="covered">covered</label>
         </div>
         &nbsp;
         &nbsp;
         <div class="custom-control custom-radio">
-            <input id="ncovered" type="radio" class="custom-control-input" value="notcovered" name="covered" formControlName="covered">
+            <input id="ncovered" type="radio" class="custom-control-input" value="false" formControlName="covered">
             <label class="custom-control-label" for="ncovered">Not covered</label>
         </div>
           </div>
@@ -120,6 +138,9 @@
 
 
   </form>
+    <agm-map [latitude]="lat" [longitude]="lng"   (mapClick)="onChooseLocation($event)">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
   {{playgroundForm.value | json}}
   </div>
 

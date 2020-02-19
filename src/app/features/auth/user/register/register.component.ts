@@ -77,7 +77,7 @@ export class RegisterComponent implements OnInit {
       'firstName': new FormControl('', [Validators.required]),
       'lastName': new FormControl('', [Validators.required]),
       'username': new FormControl('', Validators.required),
-      'phone': new FormControl('', [Validators.required, CustomValidators.phone('zh-CN')]), //phone valid 
+      'phone': new FormControl('', [Validators.required]), //phone valid 
       "address": new FormGroup({
         "governorate_id": new FormControl(1, Validators.required),
         "city_id": new FormControl(1, Validators.required)
@@ -97,8 +97,8 @@ export class RegisterComponent implements OnInit {
 
     this.userServeice.registerUser(this.registerForm.value).subscribe(data => {
 
-      this.router.navigate(['/userProfile'])
-    }, error => { console.log(error.error) })
+      this.router.navigate(['/userlogin'])
+    }, error => {  (error.error) })
 
 
   }

@@ -1,8 +1,14 @@
-<div class="row">
-    <div class="col-md-9 pb-3 mb-4 rounded" style="background-color: steelblue;margin: auto; ">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-6 mt-3 mb-3" style="background-color: rgb(173, 174, 175);margin: auto; ">
         <h3 class="pt-3" style="text-align: center;">EDIT FORM</h3>
+
+            <div class="avatar mx-auto" style="text-align: center;">
+                <img [src]="imageProfilepre"  class="rounded-circle profileimg animated bounceInDown" alt=""
+                    style="width: 200px;">
+            </div>
+            <br>
         <form (ngSubmit)="onSubmit(myImage)" #form="ngForm" [formGroup]="editForm" enctype="multipart/form-data">
-            <img [src]="imageProfilepre" style="width: 50px;height: 50px;" alt="" srcset="">
             <div class="input-group mb-2">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
@@ -16,6 +22,7 @@
                   <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                 </div>
               </div>
+
             <!-- // first_name //  -->
             <div class="form-group">
                 <label for="first_name">First Name</label>
@@ -23,18 +30,38 @@
                     minlength="4">
                 <span *ngIf="firstName.touched &&  firstName.errors?.required"> this is required </span>
                 <span *ngIf="firstName.errors?.minlength"> minLength must be 4 </span>
-
             </div>
-            <!-- // last_name //  -->
 
+            <!-- <div class="md-form">
+                <i class="fas fa-user prefix grey-text"></i>
+                <input type="text" id="form-name" class="form-control"  formControlName="firstName" placeholder="first name"
+                        minlength="4">
+                <label for="first_name">First Name</label>
+                <span *ngIf="firstName.touched &&  firstName.errors?.required"> this is required </span>
+                <span *ngIf="firstName.errors?.minlength"> minLength must be 4 </span>
+            </div> -->
+
+              
+            <!-- // last_name //  -->
             <div class="form-group">
                 <label for="last_name">last name</label>
                 <input type="text" class="form-control" formControlName="lastName" placeholder="last name"
                     minlength="4">
                 <span *ngIf="lastName.touched &&  lastName.errors?.required"> this is required </span>
                 <span *ngIf="lastName.errors?.minlength"> minLength must be 4 </span>
-
             </div>
+
+            <!-- <div class="md-form">
+                <i class="fas fa-user prefix grey-text"></i>
+                <input type="text" id="form-name" class="form-control"  formControlName="lastName" placeholder="last name"
+                     minlength="4">
+                <label for="last_name">last name</label>
+                <span *ngIf="lastName.touched &&  lastName.errors?.required"> this is required </span>
+                <span *ngIf="lastName.errors?.minlength"> minLength must be 4 </span>
+            </div> -->
+
+
+
 
             <div class="form-group">
                 <label for="username">user name</label>
@@ -104,4 +131,5 @@
 
         </form>
     </div>
+</div>
 </div>

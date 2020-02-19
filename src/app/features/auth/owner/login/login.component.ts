@@ -41,13 +41,13 @@ export class LoginComponent implements OnInit {
     this.ownerService.loginOwner(formData['email'], formData["password"])
       .subscribe(
         result => {
-          localStorage.setItem("Authorization", result["token"]);
-          console.log(result)
-          localStorage.getItem('Authorization');
+          localStorage.setItem("Authorization", result["token"]  );
+           
+          // localStorage.getItem('Authorization');
           this.Router.navigate(["/ownerProfile"]);
         },
         error => {
-          console.log(error.error);
+           (error.error);
         })
 
   }
