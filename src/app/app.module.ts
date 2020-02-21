@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CustomFormsModule } from 'ng2-validation';
@@ -34,6 +35,8 @@ import { RegisterButtonComponent } from "./core/home/components/register-button/
 import { RegisterButtonUserComponent } from "./core/home/components/register-button-user/register-button-user.component";
 import { PlaygroundListComponent } from './features/playground/playground-list/playground-list.component';
 import { PlaygroundDetailsComponent } from './features/playground/playground-details/playground-details.component';
+import { ResetPasswordComponent } from './features/auth/resetPassword/reset-password/reset-password.component';
+import { ConfirmPasswordComponent } from './features/auth/resetPassword/confirm-password/confirm-password.component';
 
 
 
@@ -62,6 +65,8 @@ import { PlaygroundDetailsComponent } from './features/playground/playground-det
     RegisterButtonUserComponent,
     PlaygroundListComponent,
     PlaygroundDetailsComponent,
+    ResetPasswordComponent,
+    ConfirmPasswordComponent,
 
   ],
   imports: [

@@ -11,6 +11,8 @@ import { LoginComponent as userlogin } from './features/auth/user/login/login.co
 import { AuthGuard } from './_authenticaton/auth.guard';
 import { PlaygroundListComponent } from './features/playground/playground-list/playground-list.component';
 import { PlaygroundDetailsComponent } from './features/playground/playground-details/playground-details.component';
+import { ResetPasswordComponent } from './features/auth/resetPassword/reset-password/reset-password.component';
+import { ConfirmPasswordComponent } from './features/auth/resetPassword/confirm-password/confirm-password.component';
 
 
 const routes: Routes = [
@@ -27,6 +29,10 @@ const routes: Routes = [
 
   {path:"playground",component:PlaygroundListComponent },
   {path:"playground/:id" , component:PlaygroundDetailsComponent},
+
+  {path:"forgetPassword",component:ResetPasswordComponent},
+  {path:"confirmPassword",component:ConfirmPasswordComponent},
+
 
   { path: "**", component: ErrorComponent },
 ];
