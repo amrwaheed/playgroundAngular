@@ -10,7 +10,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PlaygroundDetailsComponent implements OnInit {
 
-  playground :Playground = new Playground(0,"")
+  playground :Playground = new Playground(0,"");
+  lat = 40.730610;
+  lng = -73.935242;
+  location = false;
   constructor(
     private playgroundService :PlaygroundService,
     private aroute:ActivatedRoute 
