@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-6 mt-3 mb-3" style="border:5px solid #d3d1e0;
+                     background-color: rgb(255, 255, 255);margin: auto; ">
+            <!-- <h3 class="text-center">Player Login</h3> -->
+            <form [formGroup]="loginform" (ngSubmit)="onSubmit(loginform.value)" #form="ngForm">
+                <legend class="well-legend">Player Login</legend> <!-- // User Name //  -->
+
+                <!-- // User Name //  -->
+                <div class="md-form">
+                    <i class="fas fa-user prefix grey-text"></i>
+                    <input type="text" id="form-email" class="form-control" formControlName="email">
+                    <label for="email">E-Mail</label>
+                    <span *ngIf="email.touched && email.errors?.required"> this is required </span>
+                </div>
+
+                <!-- // password //  -->
+                <div class="md-form">
+                    <i class="fas fa-unlock-alt prefix grey-text"></i>
+                    <input type="password" id="form-password" class="form-control" formControlName="password" digits>
+                    <label for="password">password </label>
+                    <span *ngIf="password.touched && password.errors?.required"> this is required </span>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-6">
+                        <input type="submit" value="login" class="btn btn-success btn-rounded my-3 p-3"
+                            style="width: 200px;border-radius: 30px;">
+                    </div>
+                    <div class="col-6">
+                        <!-- Rgisiter Button -->
+                        <div class="text-center">
+                            <a href="" class="btn btn-blue btn-rounded my-3 p-3" routerLink="/userRgisiter"
+                                style="width: 60%;border-radius: 30px;">
+                                <i class="fas fa-user-plus mr-1"></i>Rgisiter</a>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <p class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</p>
+                    </div>
+
+                </div>
+
+
+
+
+            </form>
+            <!-- Form -->
+            <div class="foot-lnk">
+                <a class="" routerLink="/forgetPassword">Forget password?</a>
+            </div>
+            <!-- <div class="container">
+        <router-outlet></router-outlet>
+      </div> -->
+        </div>
+    </div>
+</div>

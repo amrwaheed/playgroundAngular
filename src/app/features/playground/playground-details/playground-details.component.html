@@ -1,0 +1,90 @@
+<!-- <div class="card" style="width: 18rem;">
+    <img class="card-img-top" [src]="playground.image" alt="">
+    <div class="card-body">
+      <h5 class="card-title"> Name :{{ playground.name}}</h5>
+      <p class="card-text">Details: {{ playground.details}}</p>
+      <p class="card-text"> Category:  {{ playground.category_id.name}}</p>
+      <p class="card-text"> Day Price:{{ playground.dayPrice}}</p>
+      <p class="card-text"> night Price :{{ playground.nightPrice}}</p>
+      <p class="card-text"> Owner :{{ playground.owner_id.username}}</p>
+      <p class="card-text" *ngIf="playground.covered">Covered</p>
+      <p class="card-text" *ngIf="!playground.covered">Open</p>
+      <a href="#" class="btn btn-primary">Booking table </a>
+    </div>
+  </div> -->
+
+  
+
+<div class="container">
+  <div class="row mt-5 mb-3 bg-white pt-5">
+
+    <!--Grid column-->
+    <div class="col-md-6 mb-4">
+
+          <div class="card card-image mb-3 col-md-10 offset-1"  [ngStyle]="{'background-image': 'url(' + playground.uploadImages + ')'}" >
+            <div class="text-white text-center d-flex align-items-center img-gradient-overlay py-5 px-4">
+                <div>
+                    <h5 class="orange-text"><i class="fas fa-futbol"></i> playground</h5>
+    
+                    <h3 class="card-title pt-2"><b> Name : {{ playground.name}}</b></h3>
+                    <p class="card-text"><b>Details: </b>{{ playground.details}}</p> <br>
+                    <p class="card-text"> <b>Category: </b> {{ playground.category_id?.name}}</p>
+                    <p class="card-text"><b> Day Price:</b>{{ playground.dayPrice}}</p>
+                    <p class="card-text"> <b> Night Price </b> :{{ playground.nightPrice}}</p>
+                    <p class="card-text"><b> Owner :</b>{{ playground.owner_id?.username}}</p>
+                    <p class="card-text" *ngIf="playground.covered"><b>Covered</b></p>
+                    <h2 class="card-text" *ngIf="!playground.covered"><b>Open</b></h2>
+    
+                    <a class="btn btn-deep-orange waves-effect waves-light" routerLink="/userProfile/booking/{{ playground._id}}" ><i class="far fa-clone left"></i> Booking table</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--Grid column-->
+
+
+
+    <!--Grid column-->
+    <div class="col-md-6">
+      <agm-map [latitude]="lat" [longitude]="lng"  >
+        <agm-marker [latitude]="  lat" [longitude]="lng"></agm-marker>
+      </agm-map>
+      <br>
+      <!--Google map-->
+      <!-- <div id="map-container-google-11" class="z-depth-1-half map-container-6  col-md-10 offset-1" style="height: 400px">
+        <iframe src="https://maps.google.com/maps?q=new%20delphi&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div> -->
+
+
+      <!--Buttons-->
+      <div class="row text-center">
+        <div class="col-md-4">
+          <a class=""><i class="fas fa-map-marker-alt"></i></a>
+          <p>{{playground.address?.city_id.name}}</p>
+          <p>{{playground.address?.governorate_id.name}}</p>
+        </div>
+
+        <div class="col-md-4">
+          <a class="btn-floating"><i class="fas fa-phone"></i></a>
+          <p>+ 0{{playground.owner_id?.phone}}</p>
+          <p>{{playground.owner_id?.date | date}}</p>
+        </div>
+
+        <div class="col-md-4">
+          <a class="btn-floating"><i class="fas fa-envelope"></i></a>
+          <p>{{playground.owner_id?.email}}</p>
+          
+        </div>
+      </div>
+
+    </div> 
+    <!--Grid column-->
+
+  </div>
+
+
+ 
+
+</div>

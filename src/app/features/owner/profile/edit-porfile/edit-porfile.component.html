@@ -1,0 +1,117 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-9 col-md-6 mt-3 mb-3" style="background-color: rgb(173, 174, 175);margin: auto; ">
+            <h3 class="pt-3" style="text-align: center;">EDIT FORM</h3>
+    
+            <div class="avatar mx-auto" style="text-align: center;">
+                <img [src]="imageProfilepre" class="rounded-circle profileimg animated bounceInDown" alt=""
+                    style="width: 200px;">
+            </div>
+            <br>
+    
+            <form (ngSubmit)="onSubmit(myImage)" #form="ngForm" [formGroup]="editForm" enctype="multipart/form-data">
+    
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                      
+                      <input type="file" class="custom-file-input" id="inputGroupFile01"
+                         (change)="uploadFile($event)"
+                         accept="image/x-png,image/gif,image/jpeg"
+                        aria-describedby="inputGroupFileAddon01">
+                      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    </div>
+                  </div>
+                <!-- // first_name //  -->
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                    <input type="text" class="form-control" formControlName="firstName" placeholder="first name"
+                        minlength="4">
+                    <span *ngIf="firstName.touched &&  firstName.errors?.required"> this is required </span>
+                    <span *ngIf="firstName.errors?.minlength"> minLength must be 4 </span>
+    
+                </div>
+                <!-- // last_name //  -->
+    
+                <div class="form-group">
+                    <label for="last_name">last name</label>
+                    <input type="text" class="form-control" formControlName="lastName" placeholder="last name"
+                        minlength="4">
+                    <span *ngIf="lastName.touched &&  lastName.errors?.required"> this is required </span>
+                    <span *ngIf="lastName.errors?.minlength"> minLength must be 4 </span>
+    
+                </div>
+    
+                <div class="form-group">
+                    <label for="username">user name</label>
+                    <input type="text" class="form-control" formControlName="username" placeholder="user name">
+                    <span *ngIf="username.touched &&  username.errors?.required"> this is required </span>
+                </div>
+    
+          
+    
+                <!-- // phone //  -->
+                <div class="form-group">
+                    <label for="phone">phone</label>
+                    <input type="text" class="form-control" formControlName="phone" placeholder="phone">
+                    <span *ngIf="phone.touched && phone.errors?.required"> this is required</span>
+                </div>
+    
+                <!-- // address //  -->
+                <div formGroupName="address">
+                    <div class="form-group">
+                        <label for="address"> governorate</label>
+                        <div className="form-group">
+                            <div className="input-group">
+                                <span className="input-group-addon">
+                                    <span className="glyphicon glyphicon-lock"></span>
+                                </span>
+                                <select class="form-control " formControlName="governorate_id"
+                                    (change)="get_Gov_Cities($event)">
+                                    <option *ngFor="let governorate of governorates" [value]="governorate._id">
+                                        {{governorate.name}}</option>
+                                </select>
+    
+                            </div>
+    
+                        </div>
+    
+                    </div>
+                    <div class="form-group">
+                        <label for="address"> city</label>
+                        <div className="form-group">
+                            <div className="input-group">
+                                <span className="input-group-addon">
+                                    <span className="glyphicon glyphicon-lock"></span>
+                                </span>
+                                <select class="form-control" formControlName="city_id">
+                                        
+                                    <option *ngFor="let city of cities" [value]="city._id">{{city.name}}</option>
+    
+                                </select>
+    
+                            </div>
+    
+                        </div>
+    
+                    </div>
+                </div>
+    
+    
+                <!-- // password //  -->
+    
+                <!-- <div class="form-group">
+                    <label for="password">password </label>
+                    <input type="password" class="form-control" formControlName="password" placeholder="password">
+                    <span *ngIf="password.touched &&  password.errors?.required"> this is required </span>
+                </div> -->
+    
+                <input type="submit" value="Update" class="btn btn-primary " [disabled]="isValid!==true">
+    
+            </form>
+        </div>
+    </div>
+    </div>

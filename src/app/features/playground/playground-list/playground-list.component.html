@@ -1,0 +1,49 @@
+<!-- main  container -->
+<div class="container bg-light ">
+    <h3 class="font-weight-light text-center mt-3">Find Your PlayGround</h3>
+
+ <!-- Grid row -->
+ <div class="row m-3">
+
+    <!-- Grid column -->
+    <div class="column-2 px-2 mb-r mt-3 py-3" *ngFor="let playground of playgrounds">
+  
+      <!--Card-->
+      <div class="card default-color-dark">
+  
+        <!--Card image-->
+        <div class="view overlay zoom">
+          <img [src]="playground.uploadImages" class="card-img-top img-fluid" alt="photo">
+          <a href="#">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+  
+        <!--Card content-->
+        <div class="card-body text-center">
+          <!--Title-->
+          <h4 class="card-title black-text">{{playground.name}}</h4>
+          <!--Text-->
+          <p class="card-text white-text">{{playground.details}}</p>
+          <a class="btn btn-outline-white btn-md" routerLink="/playground/{{playground._id}}">Details</a>
+
+        </div>
+  
+      </div>
+      <!--/.Card-->
+  
+    </div>
+    <!-- Grid column -->
+  
+  
+  </div>
+  <!-- Grid row -->
+
+</div> <!-- /main container -->
+
+<!-- ********************************************************************************* -->
+
+<!-- main  container -->
+
+
+<!-- ********************************************************************************* -->

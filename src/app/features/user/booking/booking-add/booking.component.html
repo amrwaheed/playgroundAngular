@@ -1,0 +1,141 @@
+<!-- *********************************************************************** -->
+
+<!-- Reservation -->
+<div id="reservation" class="section">
+
+  <!-- Backgound Image -->
+  <div class="bg-image" style="background-image:url()"></div>
+  <!-- /Backgound Image -->
+
+  <!-- container -->
+  <div class="container">
+
+    <!-- row -->
+    <div class="row">
+
+
+      <!-- reservation form -->
+      <div class="col-md-6 col-md-offset-1 col-sm-10 col-sm-offset-1 ">
+
+        <form (ngSubmit)="onSubmit()" #form="ngForm" [formGroup]="bookForm">
+          <!-- <input type="date" formControlName="date" > -->
+          
+                <div class="form-group">
+                  <label for="first_name">Date</label>
+                  <input type="date" class="form-control" formControlName="date"  (change)="get_Booked_Hours_By_Date($event)" min="2020-02-21">
+               </div>
+                <div class="form-group">
+                  <label for="first_name">Time</label>.
+                  <!-- <input type="time"  class="form-control"  formControlName="time" >  -->
+               </div>
+               <div class="form-group">
+                <label for="address"> hours</label>
+                <div className="form-group">
+                    <div className="input-group">
+                        <span className="input-group-addon">
+                            <span className="glyphicon glyphicon-lock"></span>
+                        </span>
+                        <select class="form-control" formControlName="time">
+                          <option value="-1" aria-readonly="true">Select Time</option>
+                                        <!-- unavailableHours.includes(availableHour._id) -->
+                            <option *ngFor="let availableHour of availableHours" [disabled]="checkBookedHours(availableHour._id)" [value]="availableHour._id">{{availableHour.time}}</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+                <input type="submit" class="form-control">
+        </form>
+
+
+        <div class="reserve-form ">
+          <!-- <form class="reserve-form row"> -->
+          <div class="section-header text-center">
+            <h4 class="sub-title">Reservation</h4>
+            <h2 class="title white-text">Book Your Playground</h2>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+       
+                
+
+              </div>
+              <div class="form-group">
+                <label for="time">date Time:</label>
+                <input class="input" type="text" placeholder="HH:MM" id="time">
+
+              </div>
+              <div class="form-group">
+                <label for="date">Date:</label>
+                <input class="input" type="text" placeholder="MM/DD/YYYY">
+              </div>
+
+
+            </div>
+
+          
+
+          </div>
+
+          <div class="col-md-12 text-center">
+            <button class="main-button">Book Now</button>
+          </div>
+
+          <!-- </form> -->
+        </div>
+
+      </div>
+      <!-- /reservation form -->
+
+      <!-- opening time -->
+      <div class="col-md-4 col-md-offset-0 col-sm-10 col-sm-offset-1">
+        <div class="opening-time">
+          <div class="section-header text-center">
+            <h2 class="title white-text">Opening Time</h2>
+          </div>
+          <ul>
+            <li>
+              <h4 class="day">Sunday</h4>
+              <h4 class="hours">8:00 am – 11:00 pm</h4>
+            </li>
+            <li>
+              <h4 class="day">Monday</h4>
+              <h4 class="hours">8:00 am – 11:00 pm</h4>
+            </li>
+            <li>
+              <h4 class="day">Tuesday</h4>
+              <h4 class="hours">8:00 am – 11:00 pm</h4>
+            </li>
+            <li>
+              <h4 class="day">Wednesday</h4>
+              <h4 class="hours">8:00 am – 11:00 pm</h4>
+            </li>
+            <li>
+              <h4 class="day">Thursday</h4>
+              <h4 class="hours">8:00 am – 11:00 pm</h4>
+            </li>
+            <li>
+              <h4 class="day">Friday</h4>
+              <h4 class="hours">Closed</h4>
+            </li>
+            <li>
+              <h4 class="day">Saturday</h4>
+              <h4 class="hours">Closed</h4>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- /opening time -->
+
+    </div>
+    <!-- /row -->
+
+  </div>
+  <!-- /container -->
+
+</div>
+<!-- /Reservation -->

@@ -1,0 +1,146 @@
+<div class="col-md-9 pb-3 mb-3 rounded" style="background-color: cadetblue;margin: auto; ">
+    <h3 class="pt-3" style="text-align: center;">playground</h3>
+
+<form  (ngSubmit)="onSubmit()" [formGroup]="playgroundForm"  enctype="multipart/form-data" >
+    <div class="form-group">
+
+
+         <!-- // first_name //  -->
+         <div class="form-group">
+          <label for="first_name">playground Name</label>
+          <input type="text" class="form-control" formControlName="playgroundName" placeholder="playground name"
+              minlength="4">
+          <span *ngIf=" playgroundName.errors?.required"> this is required </span>
+          <span *ngIf="playgroundName.errors?.minlength"> minLength must be 4 </span>
+
+      </div>
+
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+          </div>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="inputGroupFile01"
+                    (change)="uploadFile($event)" 
+               accept="image/x-png,image/gif,image/jpeg"
+              aria-describedby="inputGroupFileAddon01">
+            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+          </div>
+        </div>
+
+            <!-- // address //  -->
+            <div formGroupName="address">
+              <div class="form-group">
+                  <label for="address"> governorate</label>
+                  <div className="form-group">
+                      <div className="input-group">
+                          <span className="input-group-addon">
+                              <span className="glyphicon glyphicon-lock"></span>
+                          </span>
+                          <select class="form-control " formControlName="governorate_id"
+                              (change)="get_Gov_Cities($event)">
+                              <option *ngFor="let governorate of governorates" [value]="governorate._id">
+                                  {{governorate.name}}</option>
+                          </select>
+
+                      </div>
+
+                  </div>
+
+              </div>
+              <div class="form-group">
+                  <label for="address"> city</label>
+                  <div className="form-group">
+                      <div className="input-group">
+                          <span className="input-group-addon">
+                              <span className="glyphicon glyphicon-lock"></span>
+                          </span>
+                          <select class="form-control" formControlName="city_id">
+                                  
+                              <option *ngFor="let city of cities" [value]="city._id">{{city.name}}</option>
+
+                          </select>
+
+                      </div>
+
+                  </div>
+
+              </div>
+          </div>
+
+          <div class="form-group">
+            <label for="address"> Category</label>
+            <div className="form-group">
+                <div className="input-group">
+                    <span className="input-group-addon">
+                        <span className="glyphicon glyphicon-lock"></span>
+                    </span>
+                    <select class="form-control" formControlName="category_id">
+                            
+                        <option *ngFor="let category of categories" [value]="category._id">{{category.name}}</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </div>
+        
+          <div class="form-group">
+              <label for="DayPrice">Day Price</label>
+              <input type="number" class="form-control" formControlName="dayprice" placeholder="Day Price">
+              <span *ngIf=" dayprice.errors?.required"> this is required </span>
+          </div>
+
+          <div class="form-group">
+              <label for="NightPrice">Night Price</label>
+              <input type="number" class="form-control" formControlName="nightprice" placeholder="Night Price">
+              <span *ngIf="  nightprice.errors?.required"> this is required </span>
+          </div>
+
+
+
+          <div class="form-row">
+            <label>IS COVERED : </label> &nbsp;&nbsp;&nbsp;
+            <!-- Default unchecked disabled -->
+              
+        <div class="custom-control custom-radio">
+            <input id="covered" type="radio" class="custom-control-input" value="true" formControlName="covered">
+            <label class="custom-control-label" for="covered">covered</label>
+        </div>
+        &nbsp;
+        &nbsp;
+        <div class="custom-control custom-radio">
+            <input id="ncovered" type="radio" class="custom-control-input" value="false" formControlName="covered">
+            <label class="custom-control-label" for="ncovered">Not covered</label>
+        </div>
+          </div>
+
+        
+
+
+
+          <div class="mb-3">
+            <label for="validationTextarea">details</label>
+            <textarea formControlName="details" class="form-control" id="validationTextarea" placeholder="details"></textarea>
+            <div class="invalid-feedback">
+              Please enter a message in the textarea.
+            </div>
+          </div>
+
+
+
+      </div>
+
+      <input type="submit" value="Add Playground" class="btn btn-primary " [disabled]="isValid!==true">
+
+
+
+  </form>
+    <agm-map [latitude]="lat" [longitude]="lng"   (mapClick)="onChooseLocation($event)">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+  {{playgroundForm.value | json}}
+  </div>
+
