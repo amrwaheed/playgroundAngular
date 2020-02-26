@@ -1,0 +1,58 @@
+<!-- main  container -->
+<div class="containe mt-3 pt-3 " 
+      style="background-image: url(../../../../../assets/img/heroesBg.jpg);background-size: cover;">
+  <!-- <h3 class="font-weight-light text-center mt-3 pt-3"> Your PlayGround</h3> -->
+
+  <div class="section-header text-center">
+    <h4 class="sub-title">PlayGround</h4>
+    <h2 class="title text-light">Your PlayGroundd</h2>
+  </div>
+
+<!-- Grid row -->
+<div class="row m-3">
+
+  <!-- Grid column -->
+  <div class="column-2 px-2 mb-r mt-3 py-3" *ngFor="let playground of playgrounds" >
+
+    <!--Card-->
+    <div class="card default-color-dark  wow fadeInUp" data-wow-duration="2s" data-wow-delay="600ms">
+
+      <!--Card image-->
+      <div class="view overlay zoom" style="height: 230px;">
+        <img [src]="playground.uploadImages" class="card-img-top img-fluid" alt="photo">
+        <a href="#">
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+      <!--Card content-->
+      <div class="card-body text-center" style="height: 130px;">
+        <!--Title-->
+        <h3 class="card-title black-text">{{playground.name}}</h3>
+        <!--Text-->
+        <!-- <p class="card-text white-text">{{playground.details}}</p> -->
+        <a  class="btn btn-outline-white btn-md mr-4" routerLink="/playground/{{playground._id}}"
+              style="border-radius: 20%;font-size: large;">Details</a>
+        <a  class="btn btn-outline-white btn-md " routerLink="/ownerProfile/edit/{{playground._id}}"
+              style="border-radius: 20%; font-size: large;">Edit</a>
+
+      </div>
+
+    </div>
+    <!--/.Card-->
+
+  </div>
+  <!-- Grid column -->
+
+
+</div>
+<!-- Grid row -->
+
+</div> <!-- /main container -->
+
+<!-- ********************************************************************************* -->
+
+<!-- main  container -->
+
+
+<!-- ********************************************************************************* -->

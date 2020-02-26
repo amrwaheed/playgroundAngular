@@ -1,0 +1,121 @@
+<div class="mapbgcolored" id="contact">
+ 
+  <!--Google map-->
+  <!-- <div id="map-container" class="z-depth-1-half map-container" style="height: 500px">
+    <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+      style="border:0" allowfullscreen></iframe>
+  </div> -->
+  
+  <!-- -------------------------------------------------------------------------------------------------------------- -->
+  
+  
+    <!--Section: Contact v.1-->
+  <section class="container-fluid section pb-5">
+  
+    <!--Section heading-->
+    <h2 class="section-heading h1 wow fadeInDown" data-wow-delay="300ms">Contact us</h2>
+    <!--Section description-->
+    <p class="section-description pb-4" class="wow fadeInDown" data-wow-delay="400ms">
+      We'll even get you more customers! <br>
+      
+      Not only do we provide all the tools you need to automate your bookings, but we'll even market the gaps for you! Our worldwide websites and partnership network will push out your availability far and wide to increase your revenue.</p>
+  
+    <div class="row">
+  
+      <!--Grid column-->
+      <div class="col-lg-5 mb-4 wow fadeInLeft" data-wow-duration="2s" data-wow-delay="1s">
+  
+        <!--Form with header-->
+        <div class="card">
+  
+          <div class="card-body bg-dark">
+            <!--Header-->
+            <div class="form-header orange accent-1">
+              <h3 class="ml-2"><i class="fas fa-envelope"></i> Write to us:</h3>
+            </div>
+  
+            <p>Fill in your details below and one of our team will contact you </p>
+            <br>
+            <form (ngSubmit)="onSubmit()" #form="ngForm"  [formGroup]="contactUs" >
+            <!--Body-->
+            <div class="md-form">
+              <i class="fas fa-user prefix grey-text"></i>
+              <input type="text" id="form-name" class="form-control" formControlName="name">
+              <label for="form-name">Your name</label>
+            </div>
+  
+            <div class="md-form">
+              <i class="fas fa-envelope prefix grey-text"></i>
+              <input type="text" id="form-email" class="form-control" formControlName="email">
+              <label for="form-email">Your email</label>
+            </div>
+  
+            <div class="md-form">
+              <i class="fas fa-tag prefix grey-text"></i>
+              <input type="text" id="form-Subject" class="form-control" formControlName="subject">
+              <label for="form-Subject">Subject</label>
+            </div>
+  
+            <div class="md-form">
+              <i class="fas fa-pencil-alt prefix grey-text"></i>
+              <textarea id="form-text" class="form-control md-textarea" rows="3" formControlName="message"></textarea>
+              <label for="form-text">Your Message</label>
+            </div>
+  
+            <div class="text-center mt-4">
+              <input type="submit" class="btn main-button" value="Send">
+              <!-- <button class="btn main-button">Submit</button> -->
+            </div>
+          </form>
+          </div>
+  
+        </div>
+        <!--Form with header-->
+  
+      </div>
+      <!--Grid column-->
+  
+      <!--Grid column-->
+      <div class="col-lg-7 wow fadeInRight" data-wow-duration="2s" data-wow-delay="1s">
+  
+        <!--Google map-->
+        <div id="map-container-google-11" class="z-depth-1-half map-container-6" style="height: 400px">
+          <iframe src="https://maps.google.com/maps?q=new%20delphi&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+  
+        <br>
+        <!--Buttons-->
+        <div class="row text-center">
+          <div class="col-md-4">
+            <a class="btn-floating"><i class="fas fa-map-marker-alt fa-2x"></i></a>
+            <p>San Francisco, CA 94126</p>
+            <p>United States</p>
+          </div>
+  
+          <div class="col-md-4">
+            <a class="btn-floating "><i class="fas fa-phone fa-2x"></i></a>
+            <p>+ 01 234 567 89</p>
+            <p>Mon - Fri, 8:00-22:00</p>
+          </div>
+  
+          <div class="col-md-4">
+            <a class="btn-floating "><i class="fas fa-envelope fa-2x"></i></a>
+            <p>info@gmail.com</p>
+            <p>sale@gmail.com</p>
+          </div>
+        </div>
+  
+      </div>
+      <!--Grid column-->
+  
+    </div>
+  
+  </section>
+  <!--Section: Contact v.1-->
+  
+  
+  
+  
+  
+  </div>

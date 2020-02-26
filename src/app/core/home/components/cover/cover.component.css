@@ -1,0 +1,110 @@
+
+/* :: 14.0 Call to Action CSS */
+.call-to-action-area {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 680px; }
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      .call-to-action-area {
+        height: 500px; } }
+    @media only screen and (max-width: 767px) {
+      .call-to-action-area {
+        height: 500px; } }
+    .call-to-action-area .cta-content h2 {
+      color: #ffffff;
+      font-size: 34px;
+      margin-bottom: 20px;
+      text-transform: uppercase; }
+      @media only screen and (min-width: 992px) and (max-width: 1199px) {
+        .call-to-action-area .cta-content h2 {
+          font-size: 40px; } }
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .call-to-action-area .cta-content h2 {
+          font-size: 30px; } }
+      @media only screen and (max-width: 767px) {
+        .call-to-action-area .cta-content h2 {
+          font-size: 24px; } }
+    .call-to-action-area .cta-content h6 {
+      font-size: 28px;
+      font-style: italic;
+      color: #ffffff; }
+      @media only screen and (min-width: 992px) and (max-width: 1199px) {
+        .call-to-action-area .cta-content h6 {
+          font-size: 24px; } }
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .call-to-action-area .cta-content h6 {
+          font-size: 18px; } }
+      @media only screen and (max-width: 767px) {
+        .call-to-action-area .cta-content h6 {
+          font-size: 16px; } }
+  
+
+          /* :: 7.0 South Button CSS */
+.south-btn {
+    position: relative;
+    z-index: 1;
+    min-width: 170px;
+    height: 50px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #706f6e;
+    border-radius: 0;
+    line-height: 50px;
+    padding: 0 30px;
+    text-transform: uppercase; }
+    .south-btn.active, .south-btn:hover, .south-btn:focus {
+      color: #ffffff;
+      background-color: #000000; }
+    .south-btn.btn-2 {
+      border: 2px solid #947054;
+      background-color: transparent;
+      color: #947054;
+      line-height: 46px; }
+      .south-btn.btn-2:hover, .south-btn.btn-2:focus {
+        color: #ffffff;
+        background-color: #947054; }
+    .south-btn.btn-3 {
+      border: 2px solid #000000;
+      background-color: transparent;
+      color: #000000;
+      line-height: 46px; }
+      .south-btn.btn-3:hover, .south-btn.btn-3:focus {
+        color: #ffffff;
+        background-color: #000000; }
+
+        
+  /* ********************* */
+  .bg-fixed {
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover; }
+  
+  .bg-overlay {
+    position: relative;
+    z-index: 1; }
+    .bg-overlay::after {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #947054;
+      opacity: 0.7;
+      content: ''; }
+  
+  .bg-overlay-black {
+    position: relative;
+    z-index: 1; }
+    .bg-overlay-black::after {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000000;
+      opacity: 0.7;
+      content: ''; }

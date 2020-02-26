@@ -1,0 +1,67 @@
+<!-- main  container -->
+<div class=" bg-light p-4 "
+      style="background-image: url(../../../../../assets/img/heroesBg.jpg);background-size: cover;background-attachment: fixed;">
+    <!-- <h3 class="font-weight-light text-center mt-3">Find Your PlayGround</h3> -->
+
+    <div class="section-header text-center">
+      <h4 class="sub-title">PlayGrounds</h4>
+      <h2 class="title text-light">Find Your PlayGround</h2>
+    </div>
+
+ <!-- Grid row -->
+ <div class="row">
+
+  <div class="main">
+      <div class="form-group has-search">
+        <span class="fa fa-search form-control-feedback"></span>
+        <input type="text" class="form-control" placeholder="Search Playgrounds"  [(ngModel)]="searchFunction">
+      </div>
+  </div>
+
+</div>
+
+ <!-- Grid row -->
+ <div class="row m-3">
+
+    <!-- Grid column -->
+    <div class="column-2 px-2 mb-r mt-3 py-3" *ngFor="let playground of playgrounds | filter:searchFunction">
+  
+      <!--Card-->
+      <div class="card default-color-dark  wow fadeInUp" data-wow-duration="2s" data-wow-delay="600ms">
+  
+        <!--Card image-->
+        <div class="view overlay zoom"  style="height: 230px;">
+          <img [src]="playground.uploadImages" class="card-img-top img-fluid" alt="photo">
+          <a href="#">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+  
+        <!--Card content-->
+        <div class="card-body text-center"  style="height: 130px;">
+          <!--Title-->
+          <h3 class="card-title black-text">{{playground.name}}</h3>
+          <!--Text-->
+          <!-- <p class="card-text white-text">{{playground.details}}</p> -->
+          <a class=" main-button" style="color: #00695c;" routerLink="/playground/{{playground._id}}">Details</a>
+
+        </div>
+  
+      </div>
+      <!--/.Card-->
+  
+    </div>
+    <!-- Grid column -->
+  
+  
+  </div>
+  <!-- Grid row -->
+
+</div> <!-- /main container -->
+
+<!-- ********************************************************************************* -->
+
+<!-- main  container -->
+
+
+<!-- ********************************************************************************* -->

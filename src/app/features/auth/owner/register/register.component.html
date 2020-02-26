@@ -1,0 +1,122 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-6 mt-5 mb-3" style="border:5px solid #d3d1e0;
+                background-color: rgb(255, 255, 255);margin: auto; ">
+
+            <!-- <h2 class="text-center">Owner Register</h2> -->
+
+            <form (ngSubmit)="onSubmit()" #form="ngForm" [formGroup]="registerForm">
+                <legend class="well-legend">Owner Register</legend>
+
+                <!-- // first_name //  -->
+                <div class="md-form">
+                    <i class="fas fa-user prefix grey-text"></i>
+                    <input type="text" id="form-name" class="form-control" formControlName="firstName" minlength="3">
+                    <label for="first_name">first name</label>
+                    <span class="alert alert-danger" *ngIf="firstName.touched &&  firstName.errors?.required"> firstName
+                        is required </span>
+                    <span class="alert alert-danger" *ngIf="firstName.errors?.minlength"> minLength must be 3 </span>
+                </div>
+
+
+
+                <!-- // last_name //  -->
+                <div class="md-form">
+                    <i class="fas fa-user prefix grey-text"></i>
+                    <input type="text" class="form-control" formControlName="lastName" minlength="3">
+                    <label for="last_name">last name</label>
+                    <span class="alert alert-danger" *ngIf="lastName.touched &&  lastName.errors?.required"> lastName is
+                        required </span>
+                    <span class="alert alert-danger" *ngIf="lastName.errors?.minlength"> minLength must be 3 </span>
+                </div>
+
+                <div class="md-form">
+                    <i class="fas fa-users prefix grey-text"></i>
+                    <label for="username">user name</label>
+                    <input type="text" class="form-control" formControlName="username">
+                    <span class="alert alert-danger" *ngIf="username.touched &&  username.errors?.required"> userName is
+                        required </span>
+                </div>
+
+                <!-- // email //  -->
+                <div class="md-form">
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <label for="email">email</label>
+                    <input type="email" class="form-control" formControlName="email" email>
+                    <span class="alert alert-danger" *ngIf="email.touched &&  email.errors?.required"> this is required
+                        must be email </span>
+                    <span class="alert alert-danger" *ngIf="email.errors?.email">this field must be email </span>
+                </div>
+
+                <!-- // phone //  -->
+                <div class="md-form">
+                    <i class="fas fa-phone prefix grey-text"></i>
+                    <label for="phone">phone</label>
+                    <input type="text" class="form-control" formControlName="phone">
+                    <span class="alert alert-danger" *ngIf="phone.touched && phone.errors?.required"> phone is
+                        required</span>
+                </div>
+
+                <!-- // address //  -->
+                <div formGroupName="address">
+                    <div class="form-group ml-5">
+                        <label for="address"> governorate</label>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-lock"></span>
+                                </span>
+                                <select class="form-control" formControlName="governorate_id"
+                                    (change)="get_Gov_Cities($event)">
+                                    <option *ngFor="let governorate of governorates" [value]="governorate._id">
+                                        {{governorate.name}}</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="form-group  ml-5">
+                        <label for="address"> city</label>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-lock"></span>
+                                </span>
+                                <select class="form-control" formControlName="city_id">
+
+                                    <option *ngFor="let city of cities" [value]="city._id">{{city.name}}</option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- // password //  -->
+
+                <div class="md-form">
+                    <i class="fas fa-unlock-alt prefix grey-text"></i>
+                    <label for="password">password </label>
+                    <input type="password" class="form-control" formControlName="password">
+                    <span class="alert alert-danger" *ngIf="password.touched &&  password.errors?.required"> password is
+                        required </span>
+                </div>
+
+                <input type="submit" value="Register" class="btn btn-primary " [disabled]="isValid!==true">
+
+            </form>
+            <!-- Form -->
+            <div class="col-12">
+                <p class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</p>
+            </div>
+
+        </div>
+    </div>
+
+</div>

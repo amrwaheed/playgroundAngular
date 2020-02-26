@@ -1,0 +1,53 @@
+<div class="container-fluid mt-5 mb-5">
+  <div class="row">
+      <div class="col-12 p-5" style="background-color: rgb(175, 175, 173);margin: auto;  ">
+
+        <div class="section-header text-center">
+          <h2 class="title">Booking List</h2>
+        </div>
+        
+            <div class="form-group row mt-5">
+                <label for="playground" class="col-sm-4 col-form-label">Select Your Playground</label>
+                <div class="col-sm-8">
+                 <select name="" id="playground" class="form-control"    (change)="show_Booking_Data_In_Playground($event)" >
+                     <option value="-1" disabled>Select playground</option>
+                    <option *ngFor="let playground of playgroundList" 
+                    [value]="playground._id" 
+                    >{{playground.name}}</option>
+                 </select>
+                </div>
+              </div>
+              <table  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"                         
+                     class="row-border table-hover table table-striped table-dark wow fadeInDown" data-wow-duration="1s" data-wow-delay="300ms">
+               
+                <thead>
+                  <tr>
+                    <th >#</th>
+                    <th >Playground Name</th>
+                    <th >User Name</th>
+                    <th >User Phone</th>
+                    <th >Date</th>
+                    <th >Time</th>
+                    <th >Hour Price</th>
+             
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of bookingList; let i=index" style="color: black;font-weight: bold;">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{item.playground_id.name}}</td>
+                        <td>{{item.user_id.username}}</td>
+                        <td>0{{item.user_id.phone}}</td>
+                        <td>{{item.date}}</td>
+                        <td>{{item.time.time}}</td>
+                        <td *ngIf="(+(item.time.time).substring(0,2)) <= 16; else night">{{item.playground_id.dayPrice | currency:'EGP' }}</td>
+                        <ng-template #night>
+                            <td>{{item.playground_id.nightPrice  | currency:'EGP'}}</td>
+                        </ng-template>
+                  </tr>
+                </tbody>
+                </table>
+        </div>
+
+    </div>
+</div>

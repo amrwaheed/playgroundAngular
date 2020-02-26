@@ -1,0 +1,7 @@
+mat-label{
+    color: aliceblue;
+  }
+
+  select option[disabled]{
+    background-color: rgb(155, 58, 58);
+  }

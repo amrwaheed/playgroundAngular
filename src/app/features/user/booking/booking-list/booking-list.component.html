@@ -1,0 +1,68 @@
+
+<div class="container-fluid mt-5 mb-5">
+    <div class="row">
+        <div class="col-12 p-5" style="background-color: rgb(175, 175, 173);margin: auto;  ">
+
+          <div class="section-header text-center">
+            <h2 class="title">Booking List</h2>
+          </div>
+
+            <!-- <table class="table table-striped bg-white">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Playground Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Hour Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of bookingList; let i=index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{item.playground_id.name}}</td>
+                    <td>{{item.date}}</td>
+                    <td>{{item.time.time}}</td>
+                    <td *ngIf="(+(item.time.time).substring(0,2)) <= 16; else night">{{item.playground_id.dayPrice }}</td>
+                    <ng-template #night>
+                        <td>{{item.playground_id.nightPrice}}</td>
+                    </ng-template>
+                  
+                  </tr>
+                 
+                </tbody>
+              </table> -->
+
+              <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"  
+                        class="row-border table-hover table table-striped table-dark wow fadeInDown" data-wow-duration="1s" data-wow-delay="300ms">
+                <thead>
+                  <tr>
+                    <th >#</th>
+                    <th >Playground Name</th>
+                    <th >Date</th>
+                    <th >Time</th>
+                    <th >Hour Price</th>
+                    <th >Edit booking</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of bookingList; let i=index" style="color: black;font-weight: bold;">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{item.playground_id.name}}</td>
+                        <td>{{item.date}}</td>
+                        <td>{{item.time.time}}</td>
+                        <td *ngIf="(+(item.time.time).substring(0,2)) <= 16; else night">{{item.playground_id.dayPrice | currency:'EGP' }}</td>
+                        <ng-template #night>
+                            <td>{{item.playground_id.nightPrice  | currency:'EGP'}}</td>
+                        </ng-template>
+                        <td> 
+                          <a class="btn btn-outline-info mr-5 btn-md main-button" routerLink="/userProfile/booked/edit/{{item._id}}">Edit</a>
+                          <a class="btn btn-outline-danger btn-md main-button"  (click)="cancelBooking(item._id,i)">Cancel</a> 
+                        </td>
+                  </tr>
+                </tbody>
+                </table>
+        </div>
+
+    </div>
+</div>
