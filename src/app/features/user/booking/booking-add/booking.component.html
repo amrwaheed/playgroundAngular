@@ -28,8 +28,8 @@
 
              <mat-form-field class="example-full-width" style="width: 100%;">
               <mat-label>Choose a date</mat-label>
-              <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName="date"  (dateChange)="get_Booked_Hours_By_Date($event)">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName="date"  (dateChange)="get_Booked_Hours_By_Date($event)" >
+              <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
@@ -42,7 +42,7 @@
                       <span className="input-group-addon">
                           <span className="glyphicon glyphicon-lock"></span>
                       </span>
-                      <select class="form-control input" formControlName="time">
+                      <select class="form-control input " formControlName="time">
                         <option value="-1" aria-readonly="true">Select Time</option>
                                       <!-- unavailableHours.includes(availableHour._id) -->
                           <option *ngFor="let availableHour of availableHours" [disabled]="checkBookedHours(availableHour._id)" [value]="availableHour._id">{{availableHour.time}}</option>
@@ -56,8 +56,9 @@
           </div>
 
           <div class="col-md-12 text-center">
-              <input type="submit" class="main-button" value="Book Now">
+              <input type="submit" class="main-button" value="Book Now" [disabled]="isValid!==true">
           </div>
+      
 
       </form>
     </div>

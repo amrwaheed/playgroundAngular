@@ -86,7 +86,7 @@ export class UserService {
 
 
 
-  userLogout() {
+    userLogout() {
     localStorage.removeItem('Authorization');
     this.router.navigate(["/"]);
   }

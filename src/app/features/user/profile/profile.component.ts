@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
       }
       ,
       error =>{ 
-         (error)
+       
         this.router.navigateByUrl('/userlogin')
         this.userData =error.error;
 

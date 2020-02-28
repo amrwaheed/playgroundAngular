@@ -21,19 +21,19 @@ export class PlaygroundDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+
     this.aroute.params.subscribe(a=>{
-       
-      this.playgroundService.getPlaygroundDetails(a.id).subscribe(d=>{
-        // console.log ("playground details TS",d)
-      
+      this.playgroundService.getPlaygroundDetails(a.id).subscribe(d=>{  
         this.playground = d ;
         this.lat = this.playground.location.lat
         this.lng = this.playground.location.lng
-
       })
     })
-
-    this.role = this.playgroundService.getOwnerPayLoad().type
+    if(this.playgroundService.getOwnerPayLoad() ){
+      this.role = this.playgroundService.getOwnerPayLoad().type
+    }else{
+      this.role = 'ann'
+    }
      
   }
 

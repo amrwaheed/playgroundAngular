@@ -4,6 +4,7 @@ import { CustomValidators } from 'ng2-validation';
 import { ResetPasswordService } from 'src/app/_services/resetPassword/reset-password.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-reset-password',
@@ -20,7 +21,8 @@ export class ResetPasswordComponent implements OnInit {
     private Http: HttpClient,
     // private ResetPasswordSer: ResetPasswordService,
     private Router: Router,
-    private passwordService: ResetPasswordService
+    private passwordService: ResetPasswordService,
+    private toastr: ToastrService
 
 
   ) { }
@@ -39,20 +41,8 @@ export class ResetPasswordComponent implements OnInit {
   checkEmail(formData: FormData) {
     const email = this.resetForm.controls.email.value;
     const type = this.resetForm.controls.type.value;
-    // this.ResetPasswordSer.resetPassword(email).subscribe(
-    //   result => {
-    //     this.Router.navigate(["/confirmPassword"]);
-    //     console.log(email)
-    //   },
-    //   error => {
-    //     console.log(error.error);
-    //   })
-    // console.log(email)
-    // console.log(type)
     this.passwordService.resetPassword(email,type).subscribe((data) => {
-      localStorage.setItem("Authorization", data["token"]);
-      console.log(data)
-      localStorage.getItem('Authorization');
+      this.toastr.success(data['message']);
       this.Router.navigate(["/confirmPassword"]);
 
     },

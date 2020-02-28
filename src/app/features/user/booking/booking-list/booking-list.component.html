@@ -34,7 +34,7 @@
               </table> -->
 
               <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"  
-                        class="row-border table-hover table table-striped table-dark wow fadeInDown" data-wow-duration="1s" data-wow-delay="300ms">
+                        class="row-border table-hover table  wow fadeInDown" data-wow-duration="1s" data-wow-delay="300ms">
                 <thead>
                   <tr>
                     <th >#</th>
@@ -51,7 +51,7 @@
                         <td>{{item.playground_id.name}}</td>
                         <td>{{item.date}}</td>
                         <td>{{item.time.time}}</td>
-                        <td *ngIf="(+(item.time.time).substring(0,2)) <= 16; else night">{{item.playground_id.dayPrice | currency:'EGP' }}</td>
+                        <td *ngIf="(+(item.time.time).substring(0,2)) <= 16    ; else night">{{item.playground_id.dayPrice | currency:'EGP' }}</td>
                         <ng-template #night>
                             <td>{{item.playground_id.nightPrice  | currency:'EGP'}}</td>
                         </ng-template>
