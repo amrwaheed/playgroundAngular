@@ -25,8 +25,7 @@ export class DetailsComponent implements OnInit {
       }
       ,
       error =>{ 
-       console.log(error)
-       alert(error.error)
+      
         this.router.navigateByUrl('/ownerlogin')
         this.messageError =error.error;
 

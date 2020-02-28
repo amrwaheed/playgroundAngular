@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/_services/category/category.service';
 import { Category } from 'src/app/_models/category/category';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import * as moment from 'moment';
 import { BookingService } from 'src/app/_services/booking/booking.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,7 +14,9 @@ import { AvailableHours } from 'src/app/_models/availableHours/available-hours';
   styleUrls: ['./booking.component.css']
 })
 export class BookingComponent implements OnInit {
-  minDate: Date;
+  isValid: boolean = false;
+  minDate: Date = new Date();
+  
   maxDate: Date;
 
   availableHours: AvailableHours[] = [new AvailableHours()]; // hours from collection hours
@@ -42,7 +44,8 @@ export class BookingComponent implements OnInit {
   ) {
 
     const currentYear = new Date().getFullYear();
-    this.minDate = new Date(currentYear - 20, 0, 1);
+    this.minDate.setDate(this.minDate.getDate() );
+ 
     this.maxDate = new Date(currentYear + 1, 11, 31);
 
    }
@@ -53,8 +56,8 @@ export class BookingComponent implements OnInit {
     })
 
     this.bookForm = new FormGroup({
-      "date": new FormControl(),
-      "time": new FormControl(),
+      "date": new FormControl("",Validators.required),
+      "time": new FormControl("",Validators.required),
     })
 /**\
  * get all hours from collection availableHours
@@ -62,8 +65,6 @@ export class BookingComponent implements OnInit {
     this.bookingService.getAvailableHours().subscribe(result => {
       this.availableHours = result;
     })
-
-
   }
 
 /**
@@ -118,6 +119,16 @@ export class BookingComponent implements OnInit {
         })
     })
 
+  }
+
+  ngDoCheck(): void {
+
+    if (this.bookForm.valid == true) {
+      this.isValid = true
+    } else {
+      this.isValid = false
+
+    }
   }
 
 }

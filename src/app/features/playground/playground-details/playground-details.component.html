@@ -30,13 +30,13 @@
 
                     <p class="card-text"><b>Details : </b> {{ playground.details}}</p>
                     <p class="card-text"> <b>Category : </b> {{ playground.category_id?.name}}</p>
-                    <p class="card-text"><b> Day Price :</b> {{ playground.dayPrice}}</p>
-                    <p class="card-text"> <b> Night Price </b> : {{ playground.nightPrice}}</p>
+                    <p class="card-text"><b> Day Price :</b> {{ playground.dayPrice  | currency:'EGP'}}</p>
+                    <p class="card-text"> <b> Night Price </b> : {{ playground.nightPrice | currency:'EGP'}}</p>
                     <p class="card-text"><b> Owner :</b> {{ playground.owner_id?.username}}</p>
                     <p class="card-text" *ngIf="playground.covered"><b>Covered</b></p>
                     <h2 class="card-text" *ngIf="!playground.covered"><b>Open</b></h2>
     
-                    <a class="btn btn-deep-orange waves-effect waves-light" *ngIf="role == 'user'"
+                    <a class="btn btn-deep-orange waves-effect waves-light" *ngIf="role != 'owner'"
                      routerLink="/userProfile/booking/{{ playground._id}}" ><i class="far fa-clone left"></i> Booking table</a>
                 </div>
             </div>

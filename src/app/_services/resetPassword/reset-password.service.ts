@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,9 @@ export class ResetPasswordService {
   baseUrl: string = "http://localhost:5000/api";
 
   public resetPassword(email,type) {  // login function 
-    return this.http.post(this.baseUrl+'/resetPassword',{email, type})
+    let headers = new HttpHeaders();
+headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    return this.http.post(this.baseUrl+'/resetPassword',{email, type},{headers})
     
   }
   checkCodeAndChangePassword(type:string,verificationCode: string, newPassword: string){
